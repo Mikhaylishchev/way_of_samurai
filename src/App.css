@@ -17,11 +17,6 @@
   "n c";
 }
 
-.header {
-
-  grid-area: h;
-  background-color: rgb(221, 150, 150);
-}
 
 .nav {
 
@@ -33,8 +28,4 @@
 
   grid-area: c;
   background-color: rgb(145, 212, 148);
-}
-
-.header img {
-  width: 100px;
 }
