@@ -1,0 +1,46 @@
+
+
+.item {
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(108, 139, 223);
+    margin: 10px;
+    padding: 10px;
+}
+
+.item img {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: center / cover url('https://clck.ru/bAjCX');
+}
+
+.message {
+
+    color: rgb(0, 0, 0);
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    
+}
+
+.rating {
+
+    margin: 10px 0px 0px ;
+}
+
+.like {
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 20px;
+    user-select: none;
+}
