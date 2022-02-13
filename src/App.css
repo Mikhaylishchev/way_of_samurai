@@ -25,3 +25,9 @@
 }
 
 
+.app-wrapper-content {
+
+  grid-area: c;
+  background-color: rgb(145, 212, 148);
+  color: blueviolet;
+}
