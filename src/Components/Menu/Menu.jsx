@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import s from './Menu.module.css';
 
 const Menu = () => {
@@ -9,19 +10,19 @@ const Menu = () => {
 
       <nav className="nav">
         <div className={`${s.item} ${s.active}`}>
-          <a href='/profile'>Profile</a>
+          <NavLink to='/profile' className = { item => item.isActive ? s.activeLink : s.item }>Profile</NavLink>
         </div>
         <div className={s.item}>
-          <a href='/messages'>Messages</a>
+          <NavLink to='/messages' className = { item => item.isActive ? s.activeLink : s.item }>Messages</NavLink>
         </div>
         <div className={s.item}>
-          <a href='/news'>News</a>
+          <NavLink to='/news' className = { item => item.isActive ? s.activeLink : s.item }>News</NavLink>
         </div>
         <div className={s.item}>
-          <a href='/music'>Music</a>
+          <NavLink to='/music' className = { item => item.isActive ? s.activeLink : s.item }>Music</NavLink>
         </div>
         <div className={s.item}>
-          <a href='/settings'>Settings</a>
+          <NavLink to='/settings' className = { item => item.isActive ? s.activeLink : s.item }>Settings</NavLink>
         </div>
       </nav>
     )

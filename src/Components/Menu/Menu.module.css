@@ -6,17 +6,23 @@
     cursor: pointer;
 }
 
-.item:hover {
-
-    color: blue;
-    transition: .3s;
-    background-color: rgb(82, 179, 111);
-    opacity: .5;
+.item a {
+    color: #fff;
+    text-decoration: none;
 }
 
-.active {
+/* .item:hover {
+
     color: blue;
     transition: .3s;
     background-color: rgb(82, 179, 111);
     opacity: .5;
+} */
+
+.activeLink {
+    color: blue;
+    transition: .3s;
+    background-color: rgb(82, 179, 111);
+    opacity: .5;
+    
 }

@@ -2,8 +2,10 @@
 
     grid-area: h;
     background-color: rgb(221, 150, 150);
+    display: flex;
+    align-items: center;
 }
 
 .header img {
     width: 100px;
-  }
+}
