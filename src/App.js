@@ -6,6 +6,9 @@ import Profile from './Components/Profile/Profile';
 import Header from './Components/Header/Header';
 import Menu from './Components/Menu/Menu';
 import Dialogs from './Components/Dialogs/Dialogs';
+import News from './Components/News/News';
+import Music from './Components/Music/Music';
+import Settings from './Components/Settings/Settings';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -24,9 +27,10 @@ function App() {
 
           <Route path="/profile" element={<Profile />} />
           <Route path="/messages" element={<Dialogs />} />
-          {/* <Route path="/news" element={<News />} /> 
-          <Route path="/music" element={<Music />} /> 
-          <Route path="/settings" element={<Settings />} /> */}
+          <Route path="/news" element={<News />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/settings" element={<Settings />} />
+          
 
         </Routes>
 
