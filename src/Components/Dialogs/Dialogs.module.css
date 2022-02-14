@@ -16,9 +16,14 @@
 .dialog {
 
     padding: 10px;
+    /* border: 2px solid #000; */
+    /* border-right: none; */
+
 }
 
 .message {
 
-    padding: 10px;
+    padding: 10px 0;
+    /* border: 2px solid #000; */
+    /* border-left: none; */
 }

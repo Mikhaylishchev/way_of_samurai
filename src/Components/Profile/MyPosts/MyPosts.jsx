@@ -6,27 +6,32 @@ import Post from './Post/Post';
 
 const MyPosts = () => {
 
-    return (
+  let postsData = [
+    {id: 1, message: 'Hi! How r ya?', likesCount: 2},
+    {id: 2, message: 'Its my first post!', likesCount: 1},
+  ];
 
-      <div className="content">
-          
-          <div className={s.postsAdder}>
-              
-              <div><textarea></textarea></div>
-              
-              <div><button>Send Post</button></div>
-              
-            <div>
-              <h2>My posts</h2>
-            </div>
+  let postsElements = postsData.map(p => <Post message = {p.message} likesCount = {p.likesCount}/>)
 
-            <Post message = 'Hi! How r ya?' likesCount = '20'/>
-            <Post message = 'Its my first post!'/>
+  return (
 
-
+    <div className="content">
+        
+        <div className={s.postsAdder}>
+            
+            <div><textarea></textarea></div>
+            
+            <div><button>Send Post</button></div>
+            
+          <div>
+            <h2>My posts</h2>
           </div>
+
+          {postsElements}
+
         </div>
-    )
+      </div>
+  )
 }
 
 export default MyPosts;

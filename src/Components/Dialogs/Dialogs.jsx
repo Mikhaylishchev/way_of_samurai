@@ -6,23 +6,39 @@ import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
 
+  let dialogs = [
+    {id: 1, name: 'Jack'},
+    {id: 2, name: 'John'},
+    {id: 3, name: 'James'},
+    {id: 4, name: 'Michael'},
+    {id: 5, name: 'Hugo'},
+  ];
+
+  let dialogsElements = dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />) 
+
+  let messages = [
+    {id: 1, message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'},
+    {id: 2, message: 'Lorem ipsum dolor sit amet.'},
+    {id: 3, message: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis.'},
+    {id: 4, message: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis.'},
+    {id: 5, message: 'Lorem, ipsum dolor.'}, 
+  ];
+
+  let messagesElements = messages.map(m => <Message text={m.message}/>)
+
   return(
 
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
         
-
-        <DialogItem name="James" id='1' />
-        <DialogItem name="John" id='2' />
-        <DialogItem name="Jack" id='3' />
-        <DialogItem name="WALT" id='4' />
+        {dialogsElements}
+        
       </div>
 
-      <div className={s.message}>
-        <Message text="Lorem ipsum, dolor sit amet consectetur adipisicing elit."/>
-        <Message text="Lorem ipsum dolor sit amet."/>
-        <Message text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis."/>
-        <Message text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis."/>
+      <div>
+
+        {messagesElements}
+
       </div>
 
       
