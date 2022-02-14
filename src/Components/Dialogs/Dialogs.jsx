@@ -10,24 +10,41 @@ const Dialogs = (props) => {
 
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
-        <div className={`${s.dialog} ${s.active}`}>
-          <NavLink to="/messages/1">Jack</NavLink>
-        </div>
-        <div className={s.dialog}>
-          <NavLink to="/messages/2">John</NavLink>
-        </div>
-        <div className={s.dialog}>
-          <NavLink to="/messages/3">James</NavLink>
-        </div>
+        
+
+        <DialogItem name="James" id='1' />
+        <DialogItem name="John" id='2' />
+        <DialogItem name="Jack" id='3' />
+        <DialogItem name="WALT" id='4' />
       </div>
 
-      <div className={s.messages}>
-        <div className={s.message}>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
-        <div className={s.message}>Lorem ipsum dolor sit amet.</div>
-        <div className={s.message}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis.</div>
+      <div className={s.message}>
+        <Message text="Lorem ipsum, dolor sit amet consectetur adipisicing elit."/>
+        <Message text="Lorem ipsum dolor sit amet."/>
+        <Message text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis."/>
+        <Message text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis."/>
       </div>
+
       
     </div>
+  )
+}
+
+const DialogItem = (props) => {
+
+  return(
+
+    <div className={s.dialog}>
+      <NavLink to={`/messages/${props.id}`}>{props.name}</NavLink>
+    </div>
+  )
+}
+
+const Message = (props) => {
+
+  return(
+
+    <div className={s.message}>{props.text}</div>
   )
 }
 
