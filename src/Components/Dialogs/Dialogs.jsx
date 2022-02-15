@@ -14,8 +14,6 @@ const Dialogs = (props) => {
     {id: 5, name: 'Hugo'},
   ];
 
-  let dialogsElements = dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />) 
-
   let messages = [
     {id: 1, message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'},
     {id: 2, message: 'Lorem ipsum dolor sit amet.'},
@@ -24,7 +22,9 @@ const Dialogs = (props) => {
     {id: 5, message: 'Lorem, ipsum dolor.'}, 
   ];
 
-  let messagesElements = messages.map(m => <Message text={m.message}/>)
+  let dialogsElements = dialogs.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />) 
+
+  let messagesElements = messages.map(message => <Message key={message.id} text={message.message}/>)
 
   return(
 

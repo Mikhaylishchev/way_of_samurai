@@ -6,12 +6,13 @@ import Post from './Post/Post';
 
 const MyPosts = () => {
 
+
   let postsData = [
     {id: 1, message: 'Hi! How r ya?', likesCount: 2},
     {id: 2, message: 'Its my first post!', likesCount: 1},
   ];
 
-  let postsElements = postsData.map(p => <Post message = {p.message} likesCount = {p.likesCount}/>)
+  let postsElements = postsData.map(post => <Post key = {post.id} message = {post.message} likesCount = {post.likesCount}/>);
 
   return (
 
