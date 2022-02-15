@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+
 import './App.css';
 import Profile from './Components/Profile/Profile';
 import Header from './Components/Header/Header';
@@ -9,35 +8,40 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
-function App() {
+function App(props) {
+
   return (
+    
     <BrowserRouter>
+
       <div className="app-wrapper">
 
         <Header />
-
         <Menu />
 
         <div className="app-wrapper-content">
 
-        <Routes>
+          <Routes>
 
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/messages" element={<Dialogs />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/music" element={<Music />} />
-          <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile posts={props.posts}/>} />              
+            <Route path="/messages" element={<Dialogs dialogs={props.dialogs} letters={props.letters}/>} />
+            <Route path="/news" element={<News />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/settings" element={<Settings />} />
+            
+          </Routes>
           
-
-        </Routes>
-
         </div>
-  
       </div>
-      </BrowserRouter>
+    </BrowserRouter>
+
   );
-}
+};
 
 export default App;
+
+
+
+

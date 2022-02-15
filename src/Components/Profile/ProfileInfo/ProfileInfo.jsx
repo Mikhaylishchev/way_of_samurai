@@ -9,7 +9,7 @@ const ProfileInfo = () => {
       <div>
 
         <div>
-          <img src="https://clck.ru/b4sKL"></img>
+          <img src="https://clck.ru/bNJgT"></img>
         </div>
 
         <div className={s.information}>

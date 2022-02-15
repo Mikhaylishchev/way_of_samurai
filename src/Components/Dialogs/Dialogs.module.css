@@ -21,9 +21,16 @@
 
 }
 
+.dialog a {
+
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
 .message {
 
     padding: 10px 0;
     /* border: 2px solid #000; */
     /* border-left: none; */
+    color: rgb(59, 59, 59);
 }
