@@ -1,30 +1,30 @@
-/* eslint-disable jsx-a11y/alt-text */
-// import s from './Dialogs.module.css'
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
+import DialogItem from './DialogItem/DialogItem';
+import MessageItem from './MessageItem/MessageItem';
+
 
 const Dialogs = (props) => {
 
-  let dialogs = [
+  let dialogsArr = [
     {id: 1, name: 'Jack'},
     {id: 2, name: 'John'},
     {id: 3, name: 'James'},
     {id: 4, name: 'Michael'},
-    {id: 5, name: 'Hugo'},
+    {id: 5, name: 'Kate'},
   ];
 
-  let messages = [
+  let messagesArr = [
     {id: 1, message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'},
-    {id: 2, message: 'Lorem ipsum dolor sit amet.'},
+    {id: 2, message: '4 8 15 16 23 42'},
     {id: 3, message: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis.'},
-    {id: 4, message: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis.'},
+    {id: 4, message: 'WAAAAAAAAAAAAAAAAAAAAAAAAALT!!!!!!!!!!!!!!!!!1111111'},
     {id: 5, message: 'Lorem, ipsum dolor.'}, 
   ];
 
-  let dialogsElements = dialogs.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />) 
+  let dialogsElements = dialogsArr.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />) 
 
-  let messagesElements = messages.map(message => <Message key={message.id} text={message.message}/>)
+  let messagesElements = messagesArr.map(message => <MessageItem key={message.id} text={message.message}/>)
 
   return(
 
@@ -39,29 +39,10 @@ const Dialogs = (props) => {
 
         {messagesElements}
 
-      </div>
-
-      
+      </div>      
     </div>
   )
 }
 
-const DialogItem = (props) => {
-
-  return(
-
-    <div className={s.dialog}>
-      <NavLink to={`/messages/${props.id}`}>{props.name}</NavLink>
-    </div>
-  )
-}
-
-const Message = (props) => {
-
-  return(
-
-    <div className={s.message}>{props.text}</div>
-  )
-}
 
 export default Dialogs;
