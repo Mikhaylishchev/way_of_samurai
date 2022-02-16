@@ -8,7 +8,7 @@ const Friends = (props) => {
 
     const recommendedFriends = props.structure.recommendedFriends.map(item => <Friend key = {item.id} name = {item.name} lastname = {item.lastname} avatar = {item.avatar || 'https://clck.ru/bVQbn'} />)
 
-    FriendsElements.sort((a, b) => a.name > b.name ? 1 : -1);       /* Сортировка массива по именам */
+    FriendsElements.sort((a, b) => a.name > b.name ? 1 : -1);       /* Alphabet names-sort */
 
     return (
 
@@ -24,7 +24,7 @@ const Friends = (props) => {
 
             <div className={s.block}>
     
-                <h3 className={s.friendsSubheader}>Recommended friends: </h3>
+                <h3 className={s.friendsSubheader}>Recommended: </h3>
 
                 <div className = {s.friendsWrapper}>{recommendedFriends}</div>
 

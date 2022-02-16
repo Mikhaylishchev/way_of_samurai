@@ -8,7 +8,7 @@ const ProfileInfo = () => {
 
       <div>
 
-        <div>
+        <div className='profileWallpaper'>
           <img src="https://clck.ru/bNJgT"></img>
         </div>
 

@@ -9,6 +9,7 @@ const Menu = () => {
     return (
 
       <nav className="nav">
+        <div className={s.menuWrapper}>
         <div className={`${s.item} ${s.active}`}>     {/* <NavLink to> в react-router-dom заменяет <a href=""> */}
           <NavLink to='/profile' className = { item => item.isActive ? s.activeLink : s.item }>Profile</NavLink>
         </div>
@@ -26,6 +27,7 @@ const Menu = () => {
         </div>
         <div className={s.item}>
           <NavLink to='/friends' className = { item => item.isActive ? s.activeLink : s.item }>Friends</NavLink>
+        </div>
         </div>
       </nav>
     )
