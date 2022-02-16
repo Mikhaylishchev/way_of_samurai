@@ -24,6 +24,9 @@ const Menu = () => {
         <div className={s.item}>
           <NavLink to='/settings' className = { item => item.isActive ? s.activeLink : s.item }>Settings</NavLink>
         </div>
+        <div className={s.item}>
+          <NavLink to='/friends' className = { item => item.isActive ? s.activeLink : s.item }>Friends</NavLink>
+        </div>
       </nav>
     )
 }
