@@ -1,10 +1,12 @@
+import { rerenderEntireTree } from "../../render";
+
 let state = {
 
     profilePage: {
 
         posts: [
-            {id: 1, message: 'Hi there! How r ya?', likesCount: 2},
-            {id: 2, message: 'Its my first post!', likesCount: 1},
+            {id: 2, message: 'Hi there! How r ya?', likesCount: 2},
+            {id: 1, message: 'Its my first post!', likesCount: 1},
         ],
     },
 
@@ -34,7 +36,7 @@ let state = {
 
             {id: 1, name: 'Jack', lastname: 'Shepard', avatar: 'https://clck.ru/bVQVw'},
             {id: 2, name: 'John', lastname: 'Locke'},
-            {id: 3, name: 'James', lastname: 'Ford', avatar: 'https://clck.ru/bVQVw'},
+            {id: 3, name: 'James', lastname: 'Ford', avatar: 'https://clck.ru/bYqmB'},
             {id: 4, name: 'Michael', lastname: 'Dawson', avatar: 'https://clck.ru/bVQm7'},
             {id: 5, name: 'Kate', lastname: 'Austen', avatar: 'https://clck.ru/bVQmC'},
         ],
@@ -49,10 +51,20 @@ let state = {
             {id: 6, name: 'Hugo', lastname: 'Reyes', avatar: 'https://clck.ru/bX8ip'},
             
         ]
+    },
+    
+}
+
+export let addPost = (message) => {
+
+    let newPost = {
+        id: state.profilePage.posts[0].id + 1,
+        message: message,
+        likesCount: 0
     }
 
-
-    
+    rerenderEntireTree();
+    state.profilePage.posts.unshift(newPost);
 }
 
 export default state;

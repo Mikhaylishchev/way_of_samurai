@@ -1,14 +1,13 @@
-/* body {
-  font-size: 40px;
-  padding: 100px;
-} */
+body {
+  position: relative;
+}
 
 .app-wrapper {
 
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 80px 1fr;
   grid-template-columns: 2fr 10fr;
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
   /* grid-gap: 10px; */
 
@@ -16,7 +15,6 @@
   "h h"
   "n c";
 }
-
 
 .nav {
 
@@ -30,4 +28,8 @@
   grid-area: c;
   background-color: rgb(145, 212, 148);
   color: blueviolet;
+  min-height: 100vh;
+  padding: 25px 0;
+  min-width: 80%;
+  box-shadow: unset(2,2,2, #000);
 }

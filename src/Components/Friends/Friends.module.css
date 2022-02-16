@@ -34,7 +34,9 @@
 
 .friend:hover {
     
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(206, 235, 206);
+    /* background-color: linear- */
+    
     transition: .5s;
     text-decoration: underline;
 }
