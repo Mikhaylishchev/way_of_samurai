@@ -1,19 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import structure from './Components/redux/structure';
+import {rerenderEntireTree} from './render';
+import state from './Components/redux/structure';
 
 import reportWebVitals from './reportWebVitals';
 
+rerenderEntireTree(state);
 
 
-ReactDOM.render(
-  <React.StrictMode>
-  <App structure={structure}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+
+
+
+
 
 
 
