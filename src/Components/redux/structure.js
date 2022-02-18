@@ -1,6 +1,5 @@
 import { rerenderEntireTree } from "../../render";
 
-
 let state = {
 
     profilePage: {
@@ -66,12 +65,13 @@ export let addPost = () => {
         message: state.profilePage.newPostText,
         likesCount: 0
     }
-
+    
     state.profilePage.posts.unshift(newPost);
     state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 }
 
+    
 export let updateNewPostText = (newText) => {
 
     state.profilePage.newPostText = newText;
