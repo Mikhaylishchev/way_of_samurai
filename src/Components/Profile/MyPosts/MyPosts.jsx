@@ -14,8 +14,16 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
 
     props.addPost(text);
-    newPostElement.current.value = '';
+    
+    // props.updateNewPostText('');
   }
+
+  let onPostChange = () => {
+
+    let text = newPostElement.current.value;
+
+    props.updateNewPostText(text);
+  }  
 
   return (
 
@@ -23,7 +31,7 @@ const MyPosts = (props) => {
         
         <div className={s.postsAdder}>
             
-            <div><textarea ref={newPostElement} placeholder="share your mood!"></textarea></div>
+            <textarea onChange={onPostChange} ref={newPostElement} placeholder="share your mood!" value={props.newPostText}/>
             
             <div><button onClick={addPost}>Send Post</button></div>
             
