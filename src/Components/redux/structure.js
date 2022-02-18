@@ -1,4 +1,9 @@
-import { rerenderEntireTree } from "../../render";
+// import { rerenderEntireTree } from "../../render";
+
+let rerenderEntireTree = () => {
+
+    console.log('qweqewqe   ')
+}
 
 let state = {
 
@@ -58,24 +63,29 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
 
     let newPost = {
         id: state.profilePage.posts[0].id + 1,
         message: state.profilePage.newPostText,
         likesCount: 0
     }
-    
+
     state.profilePage.posts.unshift(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
 
     
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 
     state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
+}
+
+export const subscribe = (observer) => {
+
+    rerenderEntireTree = observer;
 }
 
 export default state;
