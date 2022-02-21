@@ -26,12 +26,12 @@ function App(props) {
 
           <Routes>
             
-            <Route path="/profile" element={<Profile profilePage={props.structure.profilePage} addPost={props.addPost} newPostText={props.newPostText} updateNewPostText={props.updateNewPostText}/>} />              
-            <Route path="/messages" element={<Dialogs structure={props.structure.dialogsPage} letters={props.structure.dialogsPage.letters}/>} />
+            <Route path="/profile" element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} newPostText={props.newPostText} />} />              
+            <Route path="/messages" element={<Dialogs state={props.state.dialogsPage} letters={props.state.dialogsPage.letters}/>} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/friends" element={<Friends structure={props.structure.friendsPage} />} />
+            <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
             
           </Routes>
           
