@@ -8,36 +8,33 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import Friends from './Components/Friends/Friends';
 
 function App(props) {
 
   return (
     
-    <BrowserRouter>
+    <div className="app-wrapper">
 
-      <div className="app-wrapper">
+      <Header />
+      <Menu />
 
-        <Header />
-        <Menu />
+      <div className="app-wrapper-content">
 
-        <div className="app-wrapper-content">
-
-          <Routes>
-            
+        <Routes>
+          
             <Route path="/profile" element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} newPostText={props.newPostText} />} />              
-            <Route path="/messages" element={<Dialogs state={props.state.dialogsPage} letters={props.state.dialogsPage.letters}/>} />
+            <Route path="/messages" element={<Dialogs letters={props.state.dialogsPage.letters} store={props.store}/>} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
-            
-          </Routes>
           
-        </div>
+        </Routes>
+        
       </div>
-    </BrowserRouter>
+    </div>
 
   );
 };
