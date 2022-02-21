@@ -24,7 +24,6 @@ const Dialogs = (props) => {
         
       </div>      
 
-      
     </div>
   )
 }
