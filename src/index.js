@@ -5,7 +5,7 @@ import App from './App';
 import './index.css';
 import { BrowserRouter } from "react-router-dom";
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
 
     ReactDOM.render(
       <React.StrictMode>

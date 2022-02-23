@@ -8,10 +8,13 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Friends from './Components/Friends/Friends';
+import RandomFriends from './Components/Friends/RandomFriends/RandomFriends';
 
 function App(props) {
+
+  
 
   return (
     
@@ -30,6 +33,7 @@ function App(props) {
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
+            <Route path="/friends" element={<RandomFriends state={props.state.friendsPage.myFriends} />} />
           
         </Routes>
         

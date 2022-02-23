@@ -30,8 +30,6 @@ const Friends = (props) => {
 
             </div>
 
-        
-
         </div>
     )
 }
