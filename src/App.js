@@ -14,8 +14,6 @@ import RandomFriends from './Components/Friends/RandomFriends/RandomFriends';
 
 function App(props) {
 
-  
-
   return (
     
     <div className="app-wrapper">
@@ -32,8 +30,8 @@ function App(props) {
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
-            <Route path="/friends" element={<RandomFriends state={props.state.friendsPage.myFriends} />} />
+            <Route path="/friends" element={<Friends friendsPage={props.state.friendsPage} />} />
+            <Route path="/friends" element={<RandomFriends />} />
           
         </Routes>
         

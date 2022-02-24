@@ -4,8 +4,9 @@ import React from 'react';
 
 const News = (props) => {
 
-  return(
 
+  return(
+    
     <div>
       News
     </div>

@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 const RandomFriends = (props) => {
 
-    console.log(props)
 
     return(
 
@@ -20,6 +19,8 @@ const RandomFriends = (props) => {
                 <div className={s.item}></div>
             </div>
         </div>
+
+        
     );
 }
 
