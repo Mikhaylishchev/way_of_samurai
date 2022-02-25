@@ -16,10 +16,8 @@ function App(props) {
 
   const state = props.store.getState()
 
-  console.log(props)
   return (
 
-    
     <div className="app-wrapper">
 
       <Header />
@@ -39,11 +37,8 @@ function App(props) {
           
         </Routes>
 
-        
-        
       </div>
     </div>
-
   );
 };
 
