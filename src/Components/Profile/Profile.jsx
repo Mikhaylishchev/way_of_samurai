@@ -2,20 +2,19 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 // import RandomFriends from '../Friends/RandomFriends/RandomFriends';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
 
-    return (
+  return (
       
       <div>
 
         <ProfileInfo />
 
-        <MyPosts /* posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} */ profilePage={props.profilePage} dispatch={props.dispatch}/>
-
-
+        <MyPostsContainer store={props.store}/>
+        
       </div>
     )
 }
