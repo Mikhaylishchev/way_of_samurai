@@ -7,9 +7,6 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
-
-
-
 let store = {
 
     _state: {
@@ -22,7 +19,7 @@ let store = {
                 {id: 1, message: 'Its my first post!', likesCount: 1},
             ],
     
-            newPostText: ''
+            newPostText: 'qqqq'
         },
     
         dialogsPage: {
@@ -70,14 +67,14 @@ let store = {
         },    
     },
 
+    _getState() {
+
+        return this._state;
+    },
+
     _callSubscriber() {
 
         console.log('render');
-    },
-
-    getState() {
-
-        return this._state;
     },
 
     subscribe(observer) {

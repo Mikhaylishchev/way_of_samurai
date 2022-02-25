@@ -14,7 +14,11 @@ import RandomFriends from './Components/Friends/RandomFriends/RandomFriends';
 
 function App(props) {
 
+  const state = props.store.getState()
+
+  console.log(props)
   return (
+
     
     <div className="app-wrapper">
 
@@ -25,15 +29,17 @@ function App(props) {
 
         <Routes>
           
-            <Route path="/profile" element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} newPostText={props.newPostText} />} />              
-            <Route path="/messages" element={<Dialogs letters={props.state.dialogsPage.letters} store={props.store}/>} />
+            <Route path="/profile" element={<Profile profilePage={state.profilePage} dispatch={props.dispatch} newPostText={props.newPostText} />} />              
+            <Route path="/messages" element={<Dialogs letters={state.dialogsPage.letters} store={props.store}/>} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/friends" element={<Friends friendsPage={props.state.friendsPage} />} />
+            <Route path="/friends" element={<Friends friendsPage={state.friendsPage} />} />
             <Route path="/friends" element={<RandomFriends />} />
           
         </Routes>
+
+        
         
       </div>
     </div>

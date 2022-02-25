@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import { addPostActionCreator } from '../../redux/state';
-import { updateNewPostTextActionCreator } from '../../redux/state';
+import { addPostActionCreator } from '../../redux/store';
+import { updateNewPostTextActionCreator } from '../../redux/store';
 
 const MyPosts = (props) => {
 
-  let postsElements = props.posts.map(post => <Post key = {post.id} message = {post.message} likesCount = {post.likesCount}/>);
+  let postsElements = props.profilePage.posts.map(post => <Post key = {post.id} message = {post.message} likesCount = {post.likesCount}/>);
 
   let newPostElement = React.createRef();
 
@@ -19,9 +19,9 @@ const MyPosts = (props) => {
 
     let text = newPostElement.current.value;
 
-    let action = updateNewPostTextActionCreator(text);
+    // let action = updateNewPostTextActionCreator(text);
 
-    props.dispatch(action)
+    props.dispatch(updateNewPostTextActionCreator(text))
   }  
 
   return (
@@ -30,7 +30,7 @@ const MyPosts = (props) => {
         
         <div className={s.postsAdder}>
             
-            <textarea onChange={onPostChange} ref={newPostElement} placeholder="share your mood!" value={props.newPostText}/>
+            <textarea onChange={onPostChange} ref={newPostElement} placeholder="share your mood!" value={props.profilePage.newPostText}/>
             
             <div><button onClick={addPost}>Send Post</button></div>
             
