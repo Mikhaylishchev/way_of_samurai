@@ -70,14 +70,14 @@ let store = {
         },    
     },
 
+    _getState() {
+
+        return this._state;
+    },
+
     _callSubscriber() {
 
         console.log('render');
-    },
-
-    getState() {
-
-        return this._state;
     },
 
     subscribe(observer) {
