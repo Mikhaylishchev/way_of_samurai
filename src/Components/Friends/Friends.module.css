@@ -22,9 +22,6 @@
     width: 200px;
     height: 100px;
     border: 1px solid #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 20px;
     padding: 10px;
     cursor: pointer;
@@ -32,11 +29,17 @@
     
 }
 
+.friend a {
+
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:#000;
+}
+
 .friend:hover {
     
-    background-color: rgb(206, 235, 206);
-    /* background-color: linear- */
-    
+    background-color: rgb(206, 235, 206);    
     transition: .5s;
     text-decoration: underline;
 }

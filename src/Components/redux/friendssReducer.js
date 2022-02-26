@@ -5,8 +5,10 @@ let initialState = {
         {id: 1, name: 'Jack', lastname: 'Shepard', avatar: 'https://clck.ru/bVQVw'},
         {id: 2, name: 'John', lastname: 'Locke'},
         {id: 3, name: 'James', lastname: 'Ford', avatar: 'https://clck.ru/bYqmB'},
-        {id: 4, name: 'Michael', lastname: 'Dawson', avatar: 'https://clck.ru/bVQm7'},
-        {id: 5, name: 'Kate', lastname: 'Austen', avatar: 'https://clck.ru/bVQmC'},
+        {id: 4, name: 'Jacob', lastname: '', avatar: 'https://clck.ru/ciRjV'},
+        {id: 4, name: 'Juliet', lastname: 'Burk', avatar: 'https://clck.ru/ciSvS'},
+        {id: 5, name: 'Michael', lastname: 'Dawson', avatar: 'https://clck.ru/bVQm7'},
+        {id: 6, name: 'Kate', lastname: 'Austen', avatar: 'https://clck.ru/bVQmC'},
     ],
 
     recommendedFriends: [
