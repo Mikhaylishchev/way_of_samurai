@@ -6,6 +6,8 @@ import { updateNewMessageTextCreator } from '../redux/store';
 
 const Dialogs = (props) => {
 
+  console.log(props)
+
   let state = props.dialogsPage;
 
   let dialogsElements = state.dialogs.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} avatar={dialog.avatar}/>) 
@@ -17,7 +19,9 @@ const Dialogs = (props) => {
   let changingNewMessage = (event) => {
 
     let text = event.target.value;
-    props.store.dispatch(updateNewMessageTextCreator(text))
+
+    props.updateNewMessageText(text);
+
   }
 
   let sendingNewMessage = () => {

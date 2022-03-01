@@ -1,4 +1,4 @@
-import Friends from './Friends';
+ import Friends from './Friends';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
