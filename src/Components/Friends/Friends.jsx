@@ -6,7 +6,7 @@ const Friends = (props) => {
 
     const FriendsElements = props.friendsPage.myFriends.map(item => <Friend key = {`${item.id}${item.name}`} name = {item.name} lastname = {item.lastname} avatar = {item.avatar || 'https://clck.ru/bVQbn'} />);
 
-    const recommendedFriends = props.friendsPage.recommendedFriends.map(item => <Friend key = {`${item.id}${item.name}`} href = {item.name} name = {item.name} lastname = {item.lastname} avatar = {item.avatar || 'https://clck.ru/bVQbn'} />)
+    const recommendedFriends = props.friendsPage.recommendedFriends.map(item => <Friend key = {`${item.id}${item.name}`} href = {item.name} name = {item.name} lastname = {item.lastname} avatar = {item.avatar || 'https://clck.ru/bVQbn'}/>)
 
     FriendsElements.sort((a, b) => a.name > b.name ? 1 : -1);       /* Alphabet names-sort */
 

@@ -9,7 +9,14 @@ const Friend = (props) => {
     <div className={s.friend}>
 
       <NavLink to={`${props.lastname}_${props.name}`}>
-        <img src={props.avatar} className={s.avatar} alt="avatar"></img>
+        <img  src={props.avatar} 
+              className={s.avatar}
+              alt="avatar"
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src="https://clck.ru/bVQbn";
+              }}></img>
+              
         <div className={s.name}>{`${props.name} ${props.lastname}`}</div>
       </NavLink>
       
