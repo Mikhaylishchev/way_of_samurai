@@ -31,6 +31,7 @@ function App(props) {
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/friends" element={<FriendsContainer />} />
+
           
         </Routes>
 
