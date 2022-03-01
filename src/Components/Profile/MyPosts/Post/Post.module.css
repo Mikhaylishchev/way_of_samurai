@@ -5,7 +5,7 @@
     color: rgb(0, 0, 0);
     background-color: rgb(108, 139, 223);
     padding: 20px 10px;
-    
+       
 }
 
 .item img {
@@ -25,12 +25,14 @@
 
 .message {
 
+    display: -webkit-inline-box;
     color: rgb(0, 0, 0);
-    width: 100%;
+    max-width: 100%;
     background-color: #fff;
     padding: 10px 30px;
     border-radius: 20px;
     user-select: none;
+    overflow-wrap: break-word;
 }
 
 .rating {

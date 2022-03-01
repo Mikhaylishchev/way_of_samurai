@@ -25,34 +25,28 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
 
+    let stateCopy;
     
     switch(action.type) {
         
             case UPDATE_NEW_MESSAGE_TEXT: {
 
-                let stateCopy = {...state}
+                return stateCopy = {
 
-                // state.newMessageText = action.text;
-
-                stateCopy.newMessageText = action.text;
-
-                return stateCopy;
+                    ...state,
+                    newMessageText: action.text
+                }
             }
 
             case SEND_MESSAGE:  {
 
+                stateCopy = {
+
+                    ...state,
+                    messages: [state.messages],
+                }
+
                 let text = state.newMessageText;
-            
-                /* state.newMessageText = '';
-                state.letters.push({
-                    
-                    id: state.letters[state.letters.length - 1].id + 1,
-                    message: text
-                }); */
-
-                let stateCopy = {...state};
-
-                stateCopy.letters = [...state.letters];
 
                 stateCopy.letters.push({
                     
@@ -60,14 +54,15 @@ const dialogsReducer = (state = initialState, action) => {
                     message: text
                 });
 
+
+                stateCopy.newMessageText = '';
                 return stateCopy;
             }
+
             default:
                 
                 return state;
     }
-
-        
 }
 
     

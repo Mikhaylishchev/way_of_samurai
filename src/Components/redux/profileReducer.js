@@ -19,6 +19,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:  {
 
             let newPost = {
+
                 id: state.posts[0].id + 1,
                 message: state.newPostText,
                 likesCount: 0
@@ -26,14 +27,8 @@ const profileReducer = (state = initialState, action) => {
 
             let stateCopy = {...state};
 
-            // state.posts.unshift(newPost);
-            // state.posts.unshift(newPost);
-
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.unshift(newPost);
+            stateCopy.posts = [newPost, ...state.posts];            
             
-            
-            // state.newPostText = '';
             stateCopy.newPostText = '';
 
             return stateCopy;
@@ -42,8 +37,6 @@ const profileReducer = (state = initialState, action) => {
         case UPDATE_NEW_POST_TEXT:  {
 
             let stateCopy = {...state};
-
-            // state.newPostText = action.newText;
 
             stateCopy.newPostText = action.newText;
 
