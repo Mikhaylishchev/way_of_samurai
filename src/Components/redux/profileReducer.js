@@ -5,7 +5,7 @@ let initialState = {
     
     posts: [
         
-        {id: 2, message: "Hi there! How r y'all?", likesCount: 2},
+        {id: 2, message: 'Hi there! How r y\'all?', likesCount: 2},
         {id: 1, message: 'Its my first post!', likesCount: 1},
     ],
 
