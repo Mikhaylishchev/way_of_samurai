@@ -2,7 +2,7 @@ import { combineReducers, createStore } from 'redux';
 import profileReducer from './profileReducer';
 import dialogsReducer from './dialogsReducer';
 import friendsReducer from './friendssReducer'
-import usersReducer from './usersReduser';
+import usersReducer from './usersReducer';
 
 let reducers = combineReducers({
 

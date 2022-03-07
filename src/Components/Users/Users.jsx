@@ -3,6 +3,8 @@ import s from './Users.module.css';
 
 const Users = (props) => {
 
+    console.log(props)
+
     if(props.users.length === 0) {
 
         props.setUsers( [
@@ -23,7 +25,7 @@ const Users = (props) => {
 
                 <div>
 
-                    {user.followed === true ? <button onClick={() => {props.unfollow(user.id)}}>Unfollow</button> : <button onClick={() => {props.follow(user.id)}}>Follow</button>}
+                    {<button onClick={() => {props.following(user.id)}}>{user.followed ? 'Unfollow' : 'Follow'}</button>}
                     
                 </div>
             </span>    
