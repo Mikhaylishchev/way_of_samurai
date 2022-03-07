@@ -2,29 +2,49 @@ import React from "react";
 import s from './Users.module.css';
 import * as axios from 'axios';
 
-class User extends React.Component {
+class Users extends React.Component {
 
-    constructor(props) {
+    componentDidMount() {
 
-        super(props);
-
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
 
             .then(response => {
 
-                this.props.setUsers(response.data.items)
-            })
+                this.props.setUsers(response.data.items);
+                this.props.setUsersAmount(response.data.totalCount);
+            });
+    }
+
+    changingPage = (pageNum) => {
+
+        this.props.setCurrentPage(pageNum);
+
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`)
+
+            .then(response => {
+
+                this.props.setUsers(response.data.items);
+                this.props.setUsersAmount(response.data.totalCount)
+            });
     }
 
     render() {
 
-        return <div>
+        let pagesAmount = Math.ceil(this.props.usersAmount / this.props.pageSize);
 
-            <button onClick={this.getUsers}>Get Users</button>
+        let pages = [];
+
+        for (let i = 1; i <= pagesAmount; i++) {
+
+            pages.push(i);
+        }
+
+
+        return <div>
 
             {
 
-                this.props.users.map(user => <div key={`${user.id}/* ${user.name} */`}>
+                this.props.users.map(user => <div key={`${user.id}`}>
 
                     <div className={s.friendsWrapper}>
                         <span>
@@ -40,7 +60,7 @@ class User extends React.Component {
 
                         <span className={s.information}>
                             <div>{`${user.name}`}</div>
-                            <div>{'country'}, {'state'}, {'city'}</div>
+                            <div>{'country'}, {'state'}, {user.id}, {'city'}</div>
                             <div>{user.status}</div>
                         </span>
 
@@ -49,8 +69,16 @@ class User extends React.Component {
 
             }
 
+            <div className={s.pagesNums}>
+
+                {pages.map(page => {
+
+                    return <span className={this.props.currentPage === page ? s.selectedPageNum : s.pageNum} onClick={(event) => {this.changingPage(page)}}>{page}</span>
+                })}
+
+            </div>
         </div>
     }
 }
 
-export default User;
+export default Users;

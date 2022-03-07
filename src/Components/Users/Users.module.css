@@ -126,3 +126,34 @@
     align-items: flex-start;
     flex-direction: column;
 }
+
+.pagesNums {
+
+    display: flex;
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pageNum {
+    cursor: pointer;
+    margin: 4px 6px;
+    font-weight: bold;
+    color: blue;
+}
+
+.pageNum:hover {
+
+    text-decoration: underline;
+    color: orange;
+    transition: .3s;
+}
+
+.selectedPageNum {
+
+    font-size: 25px;
+    font-weight: bold;
+    color: red
+}

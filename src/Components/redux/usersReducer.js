@@ -1,17 +1,15 @@
-/* const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW'; */
 const FOLLOWING = 'FOLLOWING';
-const SET_USERS = 'SET-USERS'
+const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const CHANGING_PAGE = 'CHANGING-PAGE';
+const SET_PAGES_AMOUNT = 'SET-PAGES-AMOUNT';
 
 let initialState = {
     
-    users: [
-        
-        /* {id: 1, followed: false, avavtarUrl: 'https://clck.ru/bVQVw', firstName: 'Jack', lastName: 'Shepard', status: 'Lorem ipsum dolor sit amet.', location: {country: 'USA', state: 'California', city: 'Los Angeles'}},
-        {id: 2, followed: true, avavtarUrl: 'https://clck.ru/dW87U', firstName: 'John', lastName: 'Locke', status: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', location: {country: 'USA', state: 'California', city: 'Los Angeles'}},
-        {id: 3, followed: true, avavtarUrl: 'https://clck.ru/bYqmB', firstName: 'James', lastName: 'Ford', status: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, aliquid!', location: {country: 'USA', state: 'California', city: 'Los Angeles'}}, */
-    ],
-
+    users: [],
+    pageSize: 5,
+    usersAmount: 0,
+    currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -32,8 +30,15 @@ const usersReducer = (state = initialState, action) => {
 
         case SET_USERS:
 
-        return {...state, users: [...action.users]}
+            return {...state, users: [...action.users]};
 
+        case SET_CURRENT_PAGE:
+
+            return {...state, currentPage: action.pageNum};
+
+        case SET_PAGES_AMOUNT:
+
+            return {...state, usersAmount: action.totalCount}
         default:
 
             return state;
@@ -43,4 +48,8 @@ const usersReducer = (state = initialState, action) => {
 
 export const followingAC = (userId) => ({type: FOLLOWING, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const setCurrentPageAC = (pageNum) => ({type: SET_CURRENT_PAGE, pageNum});
+export const changingPageAC = (pageNum) => ({type: CHANGING_PAGE, pageNum});
+export const setUsersAmountAC = (totalCount) => ({type: SET_PAGES_AMOUNT, totalCount});
+
 export default usersReducer;
