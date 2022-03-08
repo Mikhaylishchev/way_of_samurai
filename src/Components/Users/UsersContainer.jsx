@@ -1,5 +1,5 @@
 import React from "react";
-import { setUsersAC, followingAC, setCurrentPageAC, setUsersAmountAC, toggleIsFetchingAC } from "../redux/usersReducer";
+import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching } from "../redux/usersReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 import * as axios from "axios";
@@ -57,7 +57,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+/* let mapDispatchToProps = (dispatch) => {
 
     return {
 
@@ -86,6 +86,16 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(toggleIsFetchingAC(isFetching));
         }
     }
-}
+} */
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
+
+export default connect(mapStateToProps, {
+
+    following,
+    setUsers,
+    setCurrentPage,
+    setUsersAmount,
+    toggleIsFetching,
+
+})(UsersContainer);

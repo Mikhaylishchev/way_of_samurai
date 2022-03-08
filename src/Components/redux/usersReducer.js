@@ -45,7 +45,7 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FETCHING:
 
             return {...state, isFetching: action.isFetching}
-            
+
         default:
 
             return state;
@@ -53,11 +53,11 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const followingAC = (userId) => ({type: FOLLOWING, userId});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setCurrentPageAC = (pageNum) => ({type: SET_CURRENT_PAGE, pageNum});
-export const changingPageAC = (pageNum) => ({type: CHANGING_PAGE, pageNum});
-export const setUsersAmountAC = (totalCount) => ({type: SET_PAGES_AMOUNT, totalCount});
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const following = (userId) => ({type: FOLLOWING, userId});
+export const setUsers = (users) => ({type: SET_USERS, users});
+export const setCurrentPage = (pageNum) => ({type: SET_CURRENT_PAGE, pageNum});
+export const changingPage = (pageNum) => ({type: CHANGING_PAGE, pageNum});
+export const setUsersAmount = (totalCount) => ({type: SET_PAGES_AMOUNT, totalCount});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 
 export default usersReducer;
