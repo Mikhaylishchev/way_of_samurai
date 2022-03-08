@@ -1,13 +1,13 @@
-
 .spinner {
 
     display: block;
-    background: url('../../logo.svg');
+    /* background: url('../../logo.svg');? */
     height: 150px;
     width: 150px;
     background-repeat: no-repeat;
     pointer-events: none;
     margin: 0 auto;
+    object-fit: cover;
 }
 
 @media (prefers-reduced-motion: no-preference) {

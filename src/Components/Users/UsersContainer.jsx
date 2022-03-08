@@ -3,7 +3,7 @@ import { setUsersAC, followingAC, setCurrentPageAC, setUsersAmountAC, toggleIsFe
 import {connect} from "react-redux";
 import Users from "./Users";
 import * as axios from "axios";
-import Spinner from "../common/spinner/spinner";
+import Spinner from "../common/spinner/Spinner";
 
 class UsersContainer extends React.Component {
 
@@ -72,10 +72,12 @@ let mapDispatchToProps = (dispatch) => {
         },
 
         setCurrentPage: (pageNum) => {
+
             dispatch(setCurrentPageAC(pageNum));
         },
 
         setUsersAmount: (totalCount) => {
+
             dispatch(setUsersAmountAC(totalCount));
         },
 
