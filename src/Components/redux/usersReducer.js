@@ -3,6 +3,7 @@ const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const CHANGING_PAGE = 'CHANGING-PAGE';
 const SET_PAGES_AMOUNT = 'SET-PAGES-AMOUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 
 let initialState = {
     
@@ -10,6 +11,7 @@ let initialState = {
     pageSize: 5,
     usersAmount: 0,
     currentPage: 1,
+    isFetching: true,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -39,6 +41,10 @@ const usersReducer = (state = initialState, action) => {
         case SET_PAGES_AMOUNT:
 
             return {...state, usersAmount: action.totalCount}
+        
+        case TOGGLE_IS_FETCHING:
+
+            return {...state, isFetching: action.isFetching}
         default:
 
             return state;
@@ -51,5 +57,6 @@ export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const setCurrentPageAC = (pageNum) => ({type: SET_CURRENT_PAGE, pageNum});
 export const changingPageAC = (pageNum) => ({type: CHANGING_PAGE, pageNum});
 export const setUsersAmountAC = (totalCount) => ({type: SET_PAGES_AMOUNT, totalCount});
+export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 
 export default usersReducer;

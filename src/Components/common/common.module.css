@@ -1,0 +1,27 @@
+
+.spinner {
+
+    display: block;
+    background: url('../../logo.svg');
+    height: 150px;
+    width: 150px;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .spinner {
+        animation: spinner-spin infinite 2s linear;
+    }
+}
+
+@keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
