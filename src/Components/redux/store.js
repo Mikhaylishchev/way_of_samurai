@@ -109,6 +109,6 @@ export const updateNewMessageTextCreator = (text) => ({
 
 export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 
-export default store;
+// export default store;
 
 window.store = store;
