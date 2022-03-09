@@ -11,7 +11,27 @@ let initialState = {
     ],
 
     newPostText: '',
-    profile: null
+    profile: {
+        aboutMe: "",
+        contacts: {
+            facebook: "",
+            github: "",
+            instagram: "",
+            mainLink: null,
+            twitter: "",
+            vk: "",
+            website: null,
+            youtube: null,
+        },
+        fullName: "",
+        lookingForAJob: true,
+        lookingForAJobDescription: "",
+        photos: {
+            large: "",
+            small: ""
+        },
+        userId: 22767
+    }
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,20 +47,10 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0
             }
 
-            /* let stateCopy = {...state};
-
-            stateCopy.posts = [newPost, ...state.posts];            
-            
-            stateCopy.newPostText = ''; */
-
             return {...state, posts: [newPost, ...state.posts], newPostText: ''};
         }
 
         case UPDATE_NEW_POST_TEXT:  {
-
-            /* let stateCopy = {...state};
-
-            stateCopy.newPostText = action.newText; */
 
             return {...state, newPostText: action.newText};
         }
