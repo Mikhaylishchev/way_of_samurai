@@ -9,3 +9,41 @@ img {
     padding: 0;
 }
 
+.information {
+    display: flex;
+    align-items: center;
+}
+
+.linksWrapper {
+
+    margin: 10px;
+}
+
+.profileInfoAvatar {
+
+    width: 200px;
+    padding: 10px;
+}
+
+.status {
+
+    background-color: #fff;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.socialItem {
+    width: 48px;
+}
+
+.work div{
+    color: #000;
+    background-color: rgb(167, 152, 152);
+}
+
+.workDescr {
+
+    font-size: 0.9rem;
+}

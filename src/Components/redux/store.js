@@ -111,4 +111,4 @@ export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 
 // export default store;
 
-window.store = store;
+// window.store = store;
