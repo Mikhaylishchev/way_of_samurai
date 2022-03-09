@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './ProfileInfo.module.css';
 
 const ProfileInfo = (props) => {
 
@@ -10,10 +11,10 @@ const ProfileInfo = (props) => {
         <img src="https://clck.ru/bNJgT" alt="wallpaper"></img>
       </div>
 
-      {/* <div className={s.information}>
-        <img className={s.profileInfoAvatar} src={props.profile.photos.large}></img>
+      {<div className={s.information}>
+        <img className={s.profileInfoAvatar} alt="avatar" src={props.profile.photos.large || "https://clck.ru/b2h9v" }></img>
         <div className={s.about}>
-          <div className={s.status}>{props.profile.aboutMe}</div>
+          <div className={s.status}>"{props.profile.aboutMe}"</div>
           <div className={s.name}>{'Привет. Меня зовут ' + props.profile.fullName}.</div>
           <div className={s.contacts}>
             Вы можете связаться со мной:
@@ -32,7 +33,8 @@ const ProfileInfo = (props) => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>}
+
     </div >
   )
 }
