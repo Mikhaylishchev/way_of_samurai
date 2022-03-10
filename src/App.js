@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './App.css';
-import Header from './Components/Header/Header';
 import Menu from './Components/Menu/Menu';
 import News from './Components/News/News';
 import Music from './Components/Music/Music';
@@ -10,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import UsersContainer from './Components/Users/UsersContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
+import HeaderContainer from './Components/Header/HeaderConatiner';
 
 function App(props) {
 
@@ -17,7 +17,7 @@ function App(props) {
 
     <div className="app-wrapper">
 
-      <Header />
+      <HeaderContainer />
       <Menu />
       
 
@@ -25,7 +25,7 @@ function App(props) {
 
         <Routes>
           
-            {/* <Route path="/profile" element={<ProfileContainer />} />*/}
+            <Route path="/" element={<ProfileContainer />} />
             <Route path="/profile" element={<ProfileContainer />}>
               <Route path=":userId" element={<ProfileContainer />} />
             </Route>

@@ -6,10 +6,20 @@
     min-width: 80%;
     position: fixed;
     z-index: 5;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header img {
     width: 100px;
     padding: 0 50px;
     cursor: pointer;
+}
+
+.loginBlock, a {
+
+    font-weight: bold;
+    padding: 0 50px;
+    text-decoration: none;
+    color: aqua;
 }

@@ -21,7 +21,6 @@ class ProfileContainer extends React.Component {
 
   async componentDidMount() {
 
-    console.log(this.props);
     let userId = this.props.params.userId;
 
     if (!userId) {
