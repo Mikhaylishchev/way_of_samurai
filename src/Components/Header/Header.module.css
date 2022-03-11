@@ -12,14 +12,14 @@
 
 .header img {
     width: 100px;
-    padding: 0 50px;
+    padding: 0 0 0 50px;
     cursor: pointer;
 }
 
 .loginBlock, a {
 
     font-weight: bold;
-    padding: 0 50px;
+    padding: 0 50px 0 0;
     text-decoration: none;
     color: aqua;
 }
