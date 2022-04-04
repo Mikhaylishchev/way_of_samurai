@@ -1,7 +1,7 @@
 import React from "react";
 import s from './Users.module.css';
 import { NavLink } from 'react-router-dom';
-import * as axios from "axios";
+import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
 
@@ -15,8 +15,7 @@ let Users = (props) => {
     }
 
     return (
-    
-        
+
     <div>
 
         <div className={s.pagesNums}>
@@ -46,47 +45,22 @@ let Users = (props) => {
                             {<button onClick={() => {
 
                                 
-                                if(user.followed) {
+                                if (user.followed) {
 
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                                    usersAPI.unfollowing(user)
 
-                                        withCredentials: true,
-                                        headers: {
+                                        .then(response => {if(response.data.resultCode === 0) {
 
-                                            "API-KEY": "bd85f85d-7cdf-4bb1-ae2f-bb1be42fe32f"
-                                        }
-                                    })
-
-                                        .then(response => {
-                                            console.log(response);
-                                            
-                                            if(response.data.resultCode === 0) {
-
-                                                props.following(user.id);
-                                            }
-                                            
-                                        });
-
+                                            props.following(user.id)
+                                        }})
                                 } else {
 
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                                    usersAPI.following(user)
 
-                                    withCredentials: true,
-                                    headers: {
+                                        .then(response => {if(response.data.resultCode === 0) {
 
-                                        "API-KEY": "bd85f85d-7cdf-4bb1-ae2f-bb1be42fe32f"
-                                    }
-                                })
-
-                                    .then(response => {
-                                        console.log(response);
-                                        
-                                        if(response.data.resultCode === 0) {
-
-                                            props.following(user.id);
-                                        }
-                                        
-                                    });
+                                            props.following(user.id)
+                                        }})
                                 }
 
                             }}>{user.followed ? 'Unfollow' : 'Follow'}</button>}

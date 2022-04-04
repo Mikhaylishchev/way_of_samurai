@@ -3,21 +3,22 @@ import * as axios from "axios";
 const instance = axios.create({
 
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-    withCredenctials: true,
+    
+    withCredentials: true,
     headers: {
 
-        "API-KEY": "8cda2f48-39ab-41f1-a73f-0635e2218245"
+        "API-KEY": "bd85f85d-7cdf-4bb1-ae2f-bb1be42fe32f"
     }
 })
 
 export const usersAPI = {
 
-    getUsers(currentPage = 1, pageSize = 5) {
+    getUsers(currentPage, pageSize) {
 
         return instance.get(`users?page=${currentPage}&count=${pageSize}`, {
-    
-                withCredenctials: true
-            })
+
+            withCredentials: true
+        })
     
             .then(response => response.data);
     },
@@ -25,23 +26,31 @@ export const usersAPI = {
     getAuth() {
 
         return instance.get(`auth/me`, {
-    
-                withCredentials: true
-            })
+
+            withCredentials: true
+        })
     
             .then(response => response.data);
     },
 
-    getFollowing(user) {
+    following: (user) => {
 
-        return instance.post(`follow/${user.id}`, {}, {
-    
-            withCredentials: true,
+        return instance.post(`follow/${user.id}`, {
 
-            headers: {
-    
-                "API-KEY": "8cda2f48-39ab-41f1-a73f-0635e2218245"
-            }
+            withCredentials: true
         })
-    }   
+    },
+
+    unfollowing: (user) => {
+
+        return instance.delete(`follow/${user.id}`, {
+
+            withCredentials: true
+        })
+    },
+
+    changingPage: (pageNum, pageSize) => {
+
+        return instance.get(`users?page=${pageNum}&count=${pageSize}`)
+    }
 }
