@@ -25,6 +25,11 @@ img {
     padding: 10px;
 }
 
+.name {
+    font-size: 35px;
+    color: #000;
+}
+
 .status {
 
     background-color: #fff;

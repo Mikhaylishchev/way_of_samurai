@@ -14,7 +14,19 @@ let Users = (props) => {
         pages.push(i);
     }
 
-    return (<div>
+    return (
+    
+        
+    <div>
+
+        <div className={s.pagesNums}>
+
+            {pages.map((page, i) => {
+
+                return <span key={i} className={props.currentPage === page ? s.selectedPageNum : s.pageNum} onClick={(event) => {props.changingPage(page)}}>{page}</span>
+            })}
+
+        </div>
 
         {
             
@@ -92,15 +104,6 @@ let Users = (props) => {
             </div>)
 
         }
-
-        <div className={s.pagesNums}>
-
-            {pages.map((page, i) => {
-
-                return <span key={i} className={props.currentPage === page ? s.selectedPageNum : s.pageNum} onClick={(event) => {props.changingPage(page)}}>{page}</span>
-            })}
-
-        </div>
         
     </div>)
 }

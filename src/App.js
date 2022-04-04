@@ -33,9 +33,7 @@ function App(props) {
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
-            {/* <Route path="/friends" element={<FriendsContainer />} /> */}
             <Route path="/users" element={<UsersContainer />} />
-
           
         </Routes>
 

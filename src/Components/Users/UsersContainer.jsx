@@ -3,7 +3,7 @@ import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching }
 import {connect} from "react-redux";
 import Users from "./Users";
 import * as axios from "axios";
-import Spinner from "../common/spinner/Spinner";
+import Spinner from "../common/Spinner/Spinner";
 
 class UsersContainer extends React.Component {
 
@@ -44,10 +44,15 @@ class UsersContainer extends React.Component {
 
     render() {
 
-        return <> 
-            {this.props.isFetching ? <Spinner /> : null}
+        return <>
+
+            {this.props.isFetching
             
-            <Users usersAmount={this.props.usersAmount} pageSize={this.props.pageSize} changingPage={this.changingPage} currentPage={this.props.currentPage} users={this.props.users} following={this.props.following}/></>
+            ? <Spinner />
+            
+            : <Users usersAmount={this.props.usersAmount} pageSize={this.props.pageSize} changingPage={this.changingPage} currentPage={this.props.currentPage} users={this.props.users} following={this.props.following}/>}
+            
+        </>
     }
 }
 
