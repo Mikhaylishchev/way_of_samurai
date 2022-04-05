@@ -5,6 +5,7 @@ import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
 
+
     let pagesAmount = Math.ceil(props.usersAmount / props.pageSize);
 
     let pages = [];
@@ -42,8 +43,9 @@ let Users = (props) => {
                         </div>
 
                         <div>
-                            {<button onClick={() => {
+                            {<button disabled={props.isFollowingInProcess.some(id => id === user.id)} onClick={() => {
 
+                                props.toggleIsFollowingInProcess(true, user.id)
                                 
                                 if (user.followed) {
 
@@ -52,6 +54,7 @@ let Users = (props) => {
                                         .then(response => {if(response.data.resultCode === 0) {
 
                                             props.following(user.id)
+                                            props.toggleIsFollowingInProcess(false, user.id)
                                         }})
                                 } else {
 
@@ -60,6 +63,7 @@ let Users = (props) => {
                                         .then(response => {if(response.data.resultCode === 0) {
 
                                             props.following(user.id)
+                                            props.toggleIsFollowingInProcess(false, user.id)
                                         }})
                                 }
 

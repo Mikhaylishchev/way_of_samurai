@@ -1,5 +1,5 @@
 import React from "react";
-import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching } from "../redux/usersReducer";
+import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess,  } from "../redux/usersReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
@@ -11,7 +11,7 @@ class UsersContainer extends React.Component {
 
         this.props.toggleIsFetching(true);
 
-        usersAPI.getUsers()
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
 
             .then(response => {
                 this.props.toggleIsFetching(false);
@@ -44,7 +44,16 @@ class UsersContainer extends React.Component {
             
             ? <Spinner />
             
-            : <Users usersAmount={this.props.usersAmount} pageSize={this.props.pageSize} changingPage={this.changingPage} currentPage={this.props.currentPage} users={this.props.users} following={this.props.following}/>}
+            : <Users
+                usersAmount={this.props.usersAmount}
+                pageSize={this.props.pageSize}
+                changingPage={this.changingPage}
+                currentPage={this.props.currentPage}
+                users={this.props.users}
+                following={this.props.following}
+                isFollowingInProcess={this.props.isFollowingInProcess}
+                toggleIsFollowingInProcess={this.props.toggleIsFollowingInProcess}
+            />} 
             
         </>
     }
@@ -58,7 +67,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         usersAmount: state.usersPage.usersAmount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        isFollowingInProcess: state.usersPage.isFollowingInProcess
     }
 }
 
@@ -69,5 +79,7 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setUsersAmount,
     toggleIsFetching,
+    toggleIsFollowingInProcess,
 
 })(UsersContainer);
+
