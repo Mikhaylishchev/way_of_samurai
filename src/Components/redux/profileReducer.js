@@ -86,6 +86,8 @@ export const getUserProfile = (userId) => {
 
             .then(response => {
 
+                console.log(response)
+
                 dispatch(setUserProfile(response));
             });
     }
