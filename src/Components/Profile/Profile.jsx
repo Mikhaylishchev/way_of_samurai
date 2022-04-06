@@ -1,18 +1,25 @@
 import React from 'react';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import { Navigate } from 'react-router-dom';
 
 const Profile = (props) => {
 
+  console.log(props)
+
   return (
-    
-      <div>
 
-        <ProfileInfo profile={props.profile}/>
+    props.isAuth
 
-        <MyPostsContainer />
-        
-      </div>
+      ? <div>
+
+          <ProfileInfo profile={props.profile} />
+
+          <MyPostsContainer />
+
+        </div>
+
+      : <Navigate to='/login' />
     )
 }
 

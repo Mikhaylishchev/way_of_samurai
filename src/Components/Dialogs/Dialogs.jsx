@@ -2,6 +2,8 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/MessageItem';
+import { Navigate } from 'react-router-dom';
+
 
 const Dialogs = (props) => {
 
@@ -28,6 +30,8 @@ const Dialogs = (props) => {
 
   return(
 
+    props.isAuth ?
+
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
         
@@ -49,6 +53,11 @@ const Dialogs = (props) => {
       </div>      
 
     </div>
+
+    :
+
+     <Navigate to='/login' /> 
+
   )
 }
 

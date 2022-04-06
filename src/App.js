@@ -10,6 +10,7 @@ import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import UsersContainer from './Components/Users/UsersContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
 import HeaderContainer from './Components/Header/HeaderConatiner';
+import LoginPage from './Components/Login/Login';
 
 function App(props) {
 
@@ -34,6 +35,7 @@ function App(props) {
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/users" element={<UsersContainer />} />
+            <Route path="/login" element={<LoginPage />} />
           
         </Routes>
 

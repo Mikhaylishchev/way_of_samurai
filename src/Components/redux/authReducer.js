@@ -4,9 +4,9 @@ const SET_USER_DATA = 'SET-USER-DATA';
 
 let initialState = {
 
-    id: 22767,
-    login: "Shady942",
-    email: "shady942@gmail.com",
+    id: null,
+    login: "",
+    email: "",
     isAuth: false
 };
 
