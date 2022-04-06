@@ -1,5 +1,5 @@
 import React from "react";
-import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess, getUsers,  } from "../redux/usersReducer";
+import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess, getUsers, unfollow, follow,  } from "../redux/usersReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
@@ -34,6 +34,8 @@ class UsersContainer extends React.Component {
                 following={this.props.following}
                 isFollowingInProcess={this.props.isFollowingInProcess}
                 toggleIsFollowingInProcess={this.props.toggleIsFollowingInProcess}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
             />} 
             
         </>
@@ -61,6 +63,9 @@ export default connect(mapStateToProps, {
     setUsersAmount,
     toggleIsFetching,
     toggleIsFollowingInProcess,
-    getUsers
+    getUsers,
+    follow,
+    unfollow
 
 })(UsersContainer);
+

@@ -1,10 +1,10 @@
 import React from "react";
 import s from './Users.module.css';
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
 
+    console.log(props)
 
     let pagesAmount = Math.ceil(props.usersAmount / props.pageSize);
 
@@ -44,27 +44,14 @@ let Users = (props) => {
 
                         <div>
                             {<button disabled={props.isFollowingInProcess.some(id => id === user.id)} onClick={() => {
-
-                                props.toggleIsFollowingInProcess(true, user.id)
                                 
                                 if (user.followed) {
 
-                                    usersAPI.unfollowing(user)
-
-                                        .then(response => {if(response.data.resultCode === 0) {
-
-                                            props.following(user.id)
-                                            props.toggleIsFollowingInProcess(false, user.id)
-                                        }})
+                                    props.unfollow(user);        //      unfollow-thunk
+                                    
                                 } else {
 
-                                    usersAPI.following(user)
-
-                                        .then(response => {if(response.data.resultCode === 0) {
-
-                                            props.following(user.id)
-                                            props.toggleIsFollowingInProcess(false, user.id)
-                                        }})
+                                    props.follow(user);        //      follow-thunk
                                 }
 
                             }}>{user.followed ? 'Unfollow' : 'Follow'}</button>}
@@ -80,7 +67,6 @@ let Users = (props) => {
 
                 </div>
             </div>)
-
         }
         
     </div>)

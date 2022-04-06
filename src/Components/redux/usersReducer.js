@@ -89,4 +89,35 @@ export const getUsers = (currentPage, pageSize) => {
     };
 }
 
+export const follow = (user) => {
+
+    return(dispatch) => {
+
+        dispatch(toggleIsFollowingInProcess(true, user.id))
+
+        usersAPI.following(user)
+
+            .then(response => {if(response.data.resultCode === 0) {
+
+                dispatch(following(user.id))
+                dispatch(toggleIsFollowingInProcess(false, user.id))
+            }})
+    }
+}
+export const unfollow = (user) => {
+
+    return(dispatch) => {
+
+        dispatch(toggleIsFollowingInProcess(true, user.id))
+
+        usersAPI.unfollowing(user)
+
+            .then(response => {if(response.data.resultCode === 0) {
+
+                dispatch(following(user.id))
+                dispatch(toggleIsFollowingInProcess(false, user.id))
+            }})
+    }
+}
+
 export default usersReducer;
