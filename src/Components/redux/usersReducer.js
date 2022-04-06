@@ -1,3 +1,5 @@
+import { usersAPI } from "../../api/api";
+
 const FOLLOWING = 'FOLLOWING';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
@@ -68,6 +70,23 @@ export const setCurrentPage = (pageNum) => ({type: SET_CURRENT_PAGE, pageNum});
 export const changingPage = (pageNum) => ({type: CHANGING_PAGE, pageNum});
 export const setUsersAmount = (totalCount) => ({type: SET_PAGES_AMOUNT, totalCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const toggleIsFollowingInProcess = (isFollowingInProcess, userId) => ({type: TOGGLE_IS_FOLLOWING_IN_PROCESS, isFollowingInProcess, userId})
+export const toggleIsFollowingInProcess = (isFollowingInProcess, userId) => ({type: TOGGLE_IS_FOLLOWING_IN_PROCESS, isFollowingInProcess, userId});
+
+export const getUsers = (currentPage, pageSize) => {
+    
+    return (dispatch) => {
+
+        dispatch(toggleIsFetching(true));
+
+        usersAPI.getUsers(currentPage, pageSize)
+
+            .then(response => {
+                dispatch(toggleIsFetching(false));
+                dispatch(setUsers(response.items));
+                dispatch(setUsersAmount(response.totalCount));
+                dispatch(setCurrentPage(currentPage));
+            })
+    };
+}
 
 export default usersReducer;

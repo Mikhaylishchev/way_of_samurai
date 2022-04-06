@@ -1,5 +1,5 @@
 import React from "react";
-import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess,  } from "../redux/usersReducer";
+import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess, getUsers,  } from "../redux/usersReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
@@ -9,31 +9,12 @@ class UsersContainer extends React.Component {
 
     componentDidMount() {
 
-        this.props.toggleIsFetching(true);
-
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.items);
-                this.props.setUsersAmount(response.totalCount);
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)        //      getUsers-thunk
     }
 
-    changingPage = (pageNum) => {
+    changingPage = (pageNum, pageSize) => {
 
-        this.props.setCurrentPage(pageNum);
-
-        this.props.toggleIsFetching(true);
-
-        usersAPI.changingPage(pageNum, this.props.pageSize)
-
-            .then(response => {
-
-                this.props.setUsers(response.data.items);
-                this.props.setUsersAmount(response.data.totalCount)
-                this.props.toggleIsFetching(false);
-            });
+        this.props.getUsers(pageNum, this.props.pageSize)        //      getUsers-thunk
     }
 
     render() {
@@ -80,6 +61,6 @@ export default connect(mapStateToProps, {
     setUsersAmount,
     toggleIsFetching,
     toggleIsFollowingInProcess,
+    getUsers
 
 })(UsersContainer);
-

@@ -19,7 +19,7 @@ export const usersAPI = {
 
             withCredentials: true
         })
-    
+        
             .then(response => response.data);
     },
 
@@ -54,3 +54,4 @@ export const usersAPI = {
         return instance.get(`users?page=${pageNum}&count=${pageSize}`)
     }
 }
+
