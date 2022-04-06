@@ -19,12 +19,6 @@ const ProfileInfo = (props) => {
           <div className={s.contacts}>
 
           </div>
-          {/* <div className={s.work}>Работа:
-            <div>
-              <div>{props.profile.lookingForAJob ? <div>Открыт к предложениям. </div> : <div>Не ищу работу.</div>}</div>
-              <div className={s.workDescr}>{props.profile.lookingForAJobDescription}</div>
-            </div>
-          </div> */}
         </div>
       </div>}
 

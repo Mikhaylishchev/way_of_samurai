@@ -1,4 +1,4 @@
-import { usersAPI } from "../../api/api";
+import { authAPI, usersAPI } from "../../api/api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
@@ -38,11 +38,11 @@ export const setAuthUserData = (id, login, email) => ({
     }
 });
 
-export const getAuth = () => {
+export const getAuthData = () => {
 
     return (dispatch) => {
 
-        usersAPI.getAuth()
+        authAPI.me()
 
             .then(response => {
 
@@ -54,5 +54,6 @@ export const getAuth = () => {
             });
     }
 }
+
 
 export default authReducer;

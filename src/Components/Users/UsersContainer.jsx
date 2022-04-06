@@ -3,7 +3,6 @@ import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, 
 import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
-import { usersAPI } from "../../api/api";
 
 class UsersContainer extends React.Component {
 
