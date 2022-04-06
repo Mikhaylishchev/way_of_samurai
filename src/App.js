@@ -26,7 +26,10 @@ function App(props) {
 
         <Routes>
           
-            <Route path="/" element={<ProfileContainer />} />
+            {/* <Route path="/" element={<ProfileContainer />} /> */}
+            <Route path="/" element={<ProfileContainer />}>
+              <Route path=":userId" element={<ProfileContainer />} />
+            </Route>
             <Route path="/profile" element={<ProfileContainer />}>
               <Route path=":userId" element={<ProfileContainer />} />
             </Route>

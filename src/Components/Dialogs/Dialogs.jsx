@@ -46,7 +46,6 @@ const Dialogs = (props) => {
         <div>
 
           <div><textarea value={newMessageText} onChange={changingNewMessage} placeholder="Enter your message"></textarea></div>
-
           <div><button onClick={sendingNewMessage}>Send</button></div>
         </div>
 
@@ -54,10 +53,7 @@ const Dialogs = (props) => {
 
     </div>
 
-    :
-
-     <Navigate to='/login' /> 
-
+    : <Navigate to='/login' /> 
   )
 }
 
