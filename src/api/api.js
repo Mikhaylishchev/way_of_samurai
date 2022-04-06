@@ -15,38 +15,33 @@ export const usersAPI = {
 
     getUsers(currentPage, pageSize) {
 
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`, {
-
-            withCredentials: true
-        })
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
         
             .then(response => response.data);
     },
 
     getAuth() {
 
-        return instance.get(`auth/me`, {
-
-            withCredentials: true
-        })
+        return instance.get(`auth/me`)
     
             .then(response => response.data);
     },
 
+    getUserProfile(userId) {
+
+        return instance.get(`profile/${userId}`)
+
+            .then(response => response.data)
+    },
+
     following: (user) => {
 
-        return instance.post(`follow/${user.id}`, {
-
-            withCredentials: true
-        })
+        return instance.post(`follow/${user.id}`)
     },
 
     unfollowing: (user) => {
 
-        return instance.delete(`follow/${user.id}`, {
-
-            withCredentials: true
-        })
+        return instance.delete(`follow/${user.id}`)
     },
 
     changingPage: (pageNum, pageSize) => {

@@ -1,8 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
-import * as axios from 'axios';
 import { connect } from 'react-redux';
-import { setUserProfile } from '../redux/profileReducer';
+import { getUserProfile } from '../redux/profileReducer';
 import { useParams } from "react-router-dom";
 
 const withRouter = WrappedComponent => props => {
@@ -19,27 +18,23 @@ const withRouter = WrappedComponent => props => {
 
 class ProfileContainer extends React.Component {
 
-  async componentDidMount() {
+  componentDidMount() {
 
     let userId = this.props.params.userId;
 
     if (!userId) {
+
       userId = 22767;
     }
 
-    await axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-
-      .then(response => {
-
-        this.props.setUserProfile(response.data);
-      });
+    this.props.getUserProfile(userId)   //    getUserProfile-thunk
   }
 
   render() {
 
     return (
 
-      <Profile {...this.props} /* profile = {this.props.profile} */ />
+      <Profile {...this.props} />
     )
   }
 }
@@ -51,5 +46,4 @@ let mapStateToProps = (state) => ({
 
 let WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
-
-export default connect(mapStateToProps, { setUserProfile })(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, { getUserProfile })(WithUrlDataContainerComponent);
