@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
 
+    console.log(props)
+
     let pagesAmount = Math.ceil(props.usersAmount / props.pageSize);
 
     let pages = [];
@@ -41,7 +43,7 @@ let Users = (props) => {
                         </div>
 
                         <div>
-                            {<button disabled={props.isFollowingInProcess.some(id => id === user.id)} onClick={() => {
+                            {<button disabled={props.isAuth ? props.isFollowingInProcess.some(id => id === user.id) : true} onClick={() => {
                                 
                                 if (user.followed) {
 

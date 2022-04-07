@@ -3,10 +3,13 @@ import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, 
 import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
+import { compose } from "redux";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
+
+        console.log(this.props)
 
         this.props.getUsers(this.props.currentPage, this.props.pageSize)        //      getUsers-thunk
     }
@@ -35,6 +38,7 @@ class UsersContainer extends React.Component {
                 toggleIsFollowingInProcess={this.props.toggleIsFollowingInProcess}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
+                isAuth={this.props.isAuth}
             />} 
             
         </>
@@ -50,11 +54,12 @@ let mapStateToProps = (state) => {
         usersAmount: state.usersPage.usersAmount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        isFollowingInProcess: state.usersPage.isFollowingInProcess
+        isFollowingInProcess: state.usersPage.isFollowingInProcess,
+        isAuth: state.auth.isAuth
     }
 }
 
-export default connect(mapStateToProps, {
+export default compose(connect(mapStateToProps, {
 
     following,
     setUsers,
@@ -66,5 +71,4 @@ export default connect(mapStateToProps, {
     follow,
     unfollow
 
-})(UsersContainer);
-
+}))(UsersContainer)

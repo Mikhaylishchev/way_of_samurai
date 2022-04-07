@@ -26,7 +26,7 @@ let initialState = {
             youtube: null,
         },
         fullName: "",
-        lookingForAJob: true,
+        lookingForAJob: false,
         lookingForAJobDescription: "",
         photos: {
             large: "",
