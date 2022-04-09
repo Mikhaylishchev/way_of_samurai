@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     color: rgb(59, 59, 59);
+    overflow-wrap: anywhere;
 }
 
 .avatar {

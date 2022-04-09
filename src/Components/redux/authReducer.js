@@ -1,14 +1,8 @@
-import { authAPI, usersAPI } from "../../api/api";
+import { authAPI } from "../../api/api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
-let initialState = {
-
-    id: null,
-    login: "",
-    email: "",
-    isAuth: false
-};
+let initialState = {};
 
 const authReducer = (state = initialState, action) => {
 
