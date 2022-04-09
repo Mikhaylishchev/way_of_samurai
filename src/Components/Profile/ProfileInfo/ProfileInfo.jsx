@@ -16,7 +16,8 @@ const ProfileInfo = (props) => {
         <img className={s.profileInfoAvatar} alt="avatar" src={props.profile.photos.large || "https://clck.ru/b2h9v" }></img>
         
         <div className={s.about}>
-          {props.profile.aboutMe ? <ProfileStatus status={props.profile.aboutMe}/> : null}
+          {/* {props.profile.aboutMe ? <ProfileStatus status={props.profile.aboutMe}/> : null} */}
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
           <div className={s.name}>{props.profile.fullName}</div>
 
         </div>
