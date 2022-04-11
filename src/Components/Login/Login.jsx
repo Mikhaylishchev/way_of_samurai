@@ -1,8 +1,17 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { authAPI } from '../../api/api';
+// import { authAPI } from '../../api/api';
+import { maxLengthCrerator, requiredField, minLengthCrerator } from '../../utils/validators/validators';
+import { Input } from '../common/FormsControls/FormsControls';
+import { connect } from 'react-redux';
+import { login } from '../redux/authReducer';
 
 // import s from './Login.module.css'
+
+const maxLength30 = maxLengthCrerator(30);
+const minLength6 = minLengthCrerator(6);
+
+
 
 const LoginForm = (props) => {
 
@@ -10,13 +19,13 @@ const LoginForm = (props) => {
 
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field placeholder="Login" component="input" name="login" />
+        <Field validate={[requiredField, maxLength30]} placeholder="Email" component={Input} name="email" />
       </div>
       <div>
-        <Field placeholder="Password" component="input" name="password" />
+        <Field validate={[requiredField, minLength6]} type="password" placeholder="Password" component={Input} name="password" />
       </div>
       <div>
-        <Field component="input" type="checkbox" name="rememberMe" /> Remember me
+        <Field  component={Input} type="checkbox" name="rememberMe" /> Remember me
       </div>
       <div>
         <button>Sign In</button>
@@ -31,9 +40,7 @@ const Login = (props) => {
 
   const onSubmit = (formData) => {
 
-    authAPI.login()
-
-    console.log(formData)
+    props.login(formData.email, formData.password, formData.rememberMe)
   }
 
 
@@ -47,4 +54,4 @@ const Login = (props) => {
   )
 }
 
-export default Login;
+export default connect(null, {login})(Login);

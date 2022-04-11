@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 let rerenderEntireTree = () => {
 
     ReactDOM.render(
-      <React.StrictMode>
+      // <React.StrictMode>
 
         <BrowserRouter>
 
@@ -20,9 +20,9 @@ let rerenderEntireTree = () => {
 
           </Provider>
           
-        </BrowserRouter>
+        </BrowserRouter>,
       
-      </React.StrictMode>,
+      // </React.StrictMode>,
       document.getElementById('root')
     );
 }
