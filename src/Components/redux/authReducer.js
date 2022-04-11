@@ -2,7 +2,7 @@ import { authAPI } from "../../api/api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
-let initialState = {userId: null, email: null, login: null, isAuth: false};
+let initialState = {id: null, email: null, login: null, isAuth: false};
 
 const authReducer = (state = initialState, action) => {
 
@@ -14,7 +14,6 @@ const authReducer = (state = initialState, action) => {
 
                 ...state,
                 ...action.data,
-                isAuth: true
             }
 
         default:
