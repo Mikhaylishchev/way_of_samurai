@@ -1,4 +1,4 @@
-import { profileAPI, usersAPI } from "../../api/api";
+import { profileAPI } from "../../api/api";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -76,14 +76,11 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
 export const setStatus = (status) => ({type: SET_STATUS, status})
 
-
-
-
 export const getUserProfile = (userId) => {
 
     return (dispatch) => {
 
-        usersAPI.getUserProfile(userId)
+        profileAPI.getUserProfile(userId)
 
             .then(response => {
 
@@ -120,6 +117,5 @@ export const updateStatus = (status) => {
             })
     }
 }
-
 
 export default profileReducer;

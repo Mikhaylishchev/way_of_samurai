@@ -20,12 +20,12 @@ export const usersAPI = {
             .then(response => response.data);
     },
 
-    getUserProfile(userId) {
+    /* getUserProfile(userId) {
 
         console.warn('Obsolete method. Use profile API.');
 
         return profileAPI.getProfile(userId);
-    },
+    }, */
 
     following: (user) => {
 
@@ -65,7 +65,7 @@ export const authAPI = {
 
 export const profileAPI = {
 
-    getProfile(userId) {
+    getUserProfile(userId) {
 
         return instance.get(`profile/${userId}`)
 
