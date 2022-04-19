@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import RandomFriends from '../Friends/RandomFriends/RandomFriends';
 import s from './Menu.module.css';
 
 const Menu = () => {
@@ -27,15 +24,11 @@ const Menu = () => {
         <div className={s.item}>
           <NavLink to='/settings' className = { item => item.isActive ? s.activeLink : s.item }>Settings</NavLink>
         </div>
-        {/* <div className={s.item}>
-          <NavLink to='/friends' className = { item => item.isActive ? s.activeLink : s.item }>Friends</NavLink>
-        </div> */}
         <div className={s.item}>
           <NavLink to='/users' className = { item => item.isActive ? s.activeLink : s.item }>Users</NavLink>
         </div>
         </div>
 
-        {/* <RandomFriends /> */}
       </nav>
     )
 }

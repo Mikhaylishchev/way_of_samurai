@@ -33,7 +33,7 @@ let initialState = {
             small: ""
         },
         
-        userId: 22767
+        // userId: 22767
     },
 
     status: ""

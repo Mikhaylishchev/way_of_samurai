@@ -36,7 +36,7 @@ export const getAuthData = () => {
 
     return (dispatch) => {
 
-        authAPI.me()
+        return authAPI.me()
 
             .then(response => {
 
