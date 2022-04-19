@@ -7,13 +7,13 @@ import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 const withRouter = WrappedComponent => props => {
+
   const params = useParams();
 
   return (
     <WrappedComponent
       {...props}
       params={params}
-
     />
   );
 };
@@ -26,7 +26,7 @@ class ProfileContainer extends React.Component {
 
     if (!userId) {
 
-      userId = 22767;
+      userId = this.props.profile.userId;
     }
 
     this.props.getUserProfile(userId);   //    getUserProfile-thunk

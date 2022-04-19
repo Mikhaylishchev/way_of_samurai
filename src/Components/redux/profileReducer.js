@@ -32,6 +32,7 @@ let initialState = {
             large: "",
             small: ""
         },
+        
         userId: 22767
     },
 
