@@ -1,67 +1,34 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form'
-import { maxLengthCrerator, requiredField, minLengthCrerator } from '../../utils/validators/validators';
-import { Input } from '../common/FormsControls/FormsControls';
-import { connect } from 'react-redux';
-import { login } from '../redux/authReducer';
-import { Navigate } from 'react-router-dom';
-
-const maxLength30 = maxLengthCrerator(30);
-const minLength6 = minLengthCrerator(6);
-
-
-
-const LoginForm = (props) => {
-
-    return (
-
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field validate={[requiredField, maxLength30]} placeholder="Email" component={Input} name="email" />
-      </div>
-      <div>
-        <Field validate={[requiredField, minLength6]} type="password" placeholder="Password" component={Input} name="password" />
-      </div>
-      <div>
-        <Field  component={Input} type="checkbox" name="rememberMe" /> Remember me
-      </div>
-      <div>
-        <button>Sign In</button>
-      </div>
-    </form>
-  )
-}
-
-const ReduxLoginForm = reduxForm({ form: 'login' })(LoginForm)
+import React from "react";
+import s from './Login.module.css';
+import ReduxLoginForm from "./LoginForm";
+import { connect } from "react-redux";
+import { login } from "../redux/authReducer";
+import { Navigate } from "react-router-dom";
 
 const Login = (props) => {
 
-  const onSubmit = (formData) => {
+    const onSubmit = (formData) => {
 
-    props.login(formData.email, formData.password, formData.rememberMe);
-  }
-  
+        props.login(formData.email, formData.password, formData.rememberMe);
+    }
 
-  return (
+    if(props.isAuth) {
 
-    props.isAuth
+        return <Navigate to="/profile" />
+    }
 
-    ? <Navigate to="/profile" />
+    return (
 
-    : <div>
-        <h1>Authorization</h1>
+        <div className={s.auth}>
 
-        <ReduxLoginForm onSubmit={onSubmit}/>
-      </div>
-  )
+            <ReduxLoginForm onSubmit={onSubmit}/>
+        </div>        
+    )
 }
 
 const mapStateToProps = (state) => {
 
-  return {
-
-    isAuth: state.auth.isAuth
-  }
+    return {isAuth: state.auth.isAuth}
 }
 
-export default connect(mapStateToProps, {login})(Login);
+export default connect (mapStateToProps, {login})(Login);

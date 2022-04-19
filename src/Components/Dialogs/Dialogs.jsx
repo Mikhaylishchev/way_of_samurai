@@ -4,7 +4,7 @@ import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/MessageItem';
 import { Navigate } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form'
-import { Textarea } from '../common/FormsControls/FormsControls';
+import { Textarea } from '../common/FormControls/FormControls';
 import { maxLengthCrerator, requiredField } from '../../utils/validators/validators';
 
 const maxLength10 = maxLengthCrerator(10);

@@ -57,9 +57,12 @@ export const login = (email, password, rememberMe) => {
 
             .then(response => {
 
-                if(response.resultCode === 0) {
+                if(response.data.resultCode === 0) {
 
                     dispatch(getAuthData())
+                } else {
+
+                    
                 }
             });
     }
@@ -73,7 +76,7 @@ export const logout = () => {
 
             .then(response => {
 
-                if(response.resultCode === 0) {
+                if(response.data.resultCode === 0) {
 
                     dispatch(setAuthUserData(null, null, null, false));
                 }

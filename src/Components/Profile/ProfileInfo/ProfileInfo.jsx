@@ -29,8 +29,6 @@ const ProfileInfo = (props) => {
 
       : <Spinner />
   )
-
-
 }
 
 export default ProfileInfo;
