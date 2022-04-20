@@ -2,7 +2,7 @@
 
     background-color: rgba(0, 0, 0, .1);
     width: 50%;
-    height: 50%;
+    /* height: 50%; */
     margin: 0 auto;
     display: flex;
     justify-content: center;

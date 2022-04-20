@@ -20,13 +20,6 @@ export const usersAPI = {
             .then(response => response.data);
     },
 
-    /* getUserProfile(userId) {
-
-        console.warn('Obsolete method. Use profile API.');
-
-        return profileAPI.getProfile(userId);
-    }, */
-
     following: (user) => {
 
         return instance.post(`follow/${user.id}`)

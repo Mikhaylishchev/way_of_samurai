@@ -24,3 +24,15 @@
     text-decoration: none;
     color: aqua;
 }
+
+.logout {
+
+    display: flex;
+    align-items: center;
+}
+
+.logout img {
+
+    width: 30px;
+    padding: 20px;
+}

@@ -20,8 +20,8 @@ const ProfileInfo = (props) => {
 
           <div className={s.about}>
 
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
-            <div className={s.name}>{props.profile.fullName || props.login}</div>
+            <ProfileStatus status={props.isAuth ? props.status : null} updateStatus={props.updateStatus} />
+            <div className={s.name}>{props.isAuth ? props.profile.fullName : null}</div>
           </div>
         </div>}
 

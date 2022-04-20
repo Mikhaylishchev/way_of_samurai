@@ -1,20 +1,21 @@
 import React from "react";
-import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess, getUsers, unfollow, follow,  } from "../redux/usersReducer";
+import { setUsers, following, setCurrentPage, setUsersAmount, toggleIsFetching, toggleIsFollowingInProcess, usersRequest, unfollow, follow,  } from "../redux/usersReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
 import { compose } from "redux";
+import { getUsersSelector, getPageSizeSelector, getUsersAmountSelector, getCurrentPageSelector, getIsFetchingSelector, getIsFollowingInProcessSelector, getIsAuthSelector } from "../redux/usersSelectors";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
 
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)        //      getUsers-thunk
+        this.props.usersRequest(this.props.currentPage, this.props.pageSize)        //      getUsers-thunk
     }
 
     changingPage = (pageNum, pageSize) => {
 
-        this.props.getUsers(pageNum, this.props.pageSize)        //      getUsers-thunk
+        this.props.usersRequest(pageNum, this.props.pageSize)        //      getUsers-thunk
     }
 
     render() {
@@ -43,7 +44,7 @@ class UsersContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+/* let mapStateToProps = (state) => {
 
     return {
 
@@ -55,7 +56,22 @@ let mapStateToProps = (state) => {
         isFollowingInProcess: state.usersPage.isFollowingInProcess,
         isAuth: state.auth.isAuth
     }
+} */
+
+let mapStateToProps = (state) => {
+
+    return {
+
+        users: getUsersSelector(state),
+        pageSize: getPageSizeSelector(state),
+        usersAmount: getUsersAmountSelector(state),
+        currentPage: getCurrentPageSelector(state),
+        isFetching: getIsFetchingSelector(state),
+        isFollowingInProcess: getIsFollowingInProcessSelector(state),
+        isAuth: getIsAuthSelector(state)
+    }
 }
+
 
 export default compose(connect(mapStateToProps, {
 
@@ -65,8 +81,8 @@ export default compose(connect(mapStateToProps, {
     setUsersAmount,
     toggleIsFetching,
     toggleIsFollowingInProcess,
-    getUsers,
+    usersRequest,
     follow,
     unfollow
 
-}))(UsersContainer)
+}))(UsersContainer);

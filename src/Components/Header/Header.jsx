@@ -12,12 +12,11 @@ const Header = (props) => {
 
       <div className={s.loginBlock}>
 
-        {props.isAuth ? <div>{props.login}<button onClick={props.logout}>LogOut</button></div> : <NavLink to="/login" >LogIn</NavLink>}
+        {props.isAuth ? <div className={s.logout}>{props.login} <img src="https://clck.ru/feDnz" alt="logout" onClick={props.logout} /></div> : <NavLink to="/login" >LogIn</NavLink>}
 
       </div>
     </header >
   )
 }
-
 
 export default Header;

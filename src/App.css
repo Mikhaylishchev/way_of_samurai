@@ -1,5 +1,7 @@
 body {
   position: relative;
+  overflow-x: hidden;
+
 }
 
 .app-wrapper {
@@ -32,4 +34,5 @@ body {
   padding: 25px 0;
   min-width: 80%;
   box-shadow: unset(2,2,2, #000);
+  position: relative;
 }
