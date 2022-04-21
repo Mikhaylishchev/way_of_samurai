@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import Spinner from "../common/Spinner/Spinner";
 import { compose } from "redux";
-import { getUsersSelector, getPageSizeSelector, getUsersAmountSelector, getCurrentPageSelector, getIsFetchingSelector, getIsFollowingInProcessSelector, getIsAuthSelector } from "../redux/usersSelectors";
+import { getUsers, getPageSizeSelector, getUsersAmountSelector, getCurrentPageSelector, getIsFetchingSelector, getIsFollowingInProcessSelector, getIsAuthSelector } from "../redux/usersSelectors";
 
 class UsersContainer extends React.Component {
 
@@ -44,25 +44,11 @@ class UsersContainer extends React.Component {
     }
 }
 
-/* let mapStateToProps = (state) => {
-
-    return {
-
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        usersAmount: state.usersPage.usersAmount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        isFollowingInProcess: state.usersPage.isFollowingInProcess,
-        isAuth: state.auth.isAuth
-    }
-} */
-
 let mapStateToProps = (state) => {
 
     return {
 
-        users: getUsersSelector(state),
+        users: getUsers(state),
         pageSize: getPageSizeSelector(state),
         usersAmount: getUsersAmountSelector(state),
         currentPage: getCurrentPageSelector(state),
@@ -71,7 +57,6 @@ let mapStateToProps = (state) => {
         isAuth: getIsAuthSelector(state)
     }
 }
-
 
 export default compose(connect(mapStateToProps, {
 
@@ -86,3 +71,4 @@ export default compose(connect(mapStateToProps, {
     unfollow
 
 }))(UsersContainer);
+
