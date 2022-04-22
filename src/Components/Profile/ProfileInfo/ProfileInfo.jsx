@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
-import ProfileStatus from './ProfileStatus';
+// import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import Spinner from '../../common/Spinner/Spinner'
 
 const ProfileInfo = (props) => {
@@ -20,7 +21,7 @@ const ProfileInfo = (props) => {
 
           <div className={s.about}>
 
-            <ProfileStatus status={props.isAuth ? props.status : null} updateStatus={props.updateStatus} />
+            <ProfileStatusWithHooks status={props.isAuth ? props.status : null} updateStatus={props.updateStatus} />
             <div className={s.name}>{props.isAuth ? props.profile.fullName : null}</div>
           </div>
         </div>}
