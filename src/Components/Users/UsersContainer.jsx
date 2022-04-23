@@ -13,9 +13,11 @@ class UsersContainer extends React.Component {
         this.props.usersRequest(this.props.currentPage, this.props.pageSize)        //      getUsers-thunk
     }
 
-    changingPage = (pageNum, pageSize) => {
+    changingPage = (pageNum) => {
 
-        this.props.usersRequest(pageNum, this.props.pageSize)        //      getUsers-thunk
+        let {pageSize} = this.props;
+
+        this.props.usersRequest(pageNum, pageSize)        //      getUsers-thunk
     }
 
     render() {

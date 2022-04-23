@@ -4,11 +4,11 @@ import s from './ProfileInfo.module.css';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import Spinner from '../../common/Spinner/Spinner'
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile, status, updateStatus, login}) => {
 
   return (
 
-    props.profile
+    profile
 
       ? <div>
 
@@ -17,12 +17,12 @@ const ProfileInfo = (props) => {
         </div>
 
         {<div className={s.information}>
-          <img className={s.profileInfoAvatar} alt="avatar" src={props.profile.photos.large || "https://clck.ru/b2h9v"}></img>
+          <img className={s.profileInfoAvatar} alt="avatar" src={profile.photos.large || "https://clck.ru/b2h9v"}></img>
 
           <div className={s.about}>
 
-            <ProfileStatusWithHooks status={props.isAuth ? props.status : null} updateStatus={props.updateStatus} />
-            <div className={s.name}>{props.isAuth ? props.profile.fullName : null}</div>
+            <ProfileStatusWithHooks status={status || profile.status} updateStatus={updateStatus} />
+            <div className={s.name}>{profile.fullName || login}</div>
           </div>
         </div>}
 

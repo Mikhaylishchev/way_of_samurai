@@ -6,6 +6,8 @@ const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 
 
+
+
 let initialState = {
     
     posts: [
@@ -32,9 +34,7 @@ let initialState = {
         photos: {
             large: "",
             small: ""
-        },
-        
-        userId: 22767
+        }        
     },
 
     status: ""
@@ -87,43 +87,34 @@ export const setStatus = (status) => ({type: SET_STATUS, status})
 
 export const getUserProfile = (userId) => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
 
-        profileAPI.getUserProfile(userId)
+        let response = await profileAPI.getUserProfile(userId)
 
-            .then(response => {
-
-                dispatch(setUserProfile(response));
-            });
+        dispatch(setUserProfile(response));
     }
 }
 
 export const getStatus = (userId) => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
 
-        profileAPI.getStatus(userId)
+        let response = await profileAPI.getStatus(userId)
 
-            .then(response => {
-
-                dispatch(setStatus(response.data))
-            })
+        dispatch(setStatus(response.data))
     }
 }
 
 export const updateStatus = (status) => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
 
-        profileAPI.updateStatus(status)
+        let response = await profileAPI.updateStatus(status)
 
-            .then(response => {
-
-                if(response.data.resultCode === 0){
-                                
-                    dispatch(setStatus(status))
-                }
-            })
+            if(response.data.resultCode === 0){
+                            
+                dispatch(setStatus(status))
+            }
     }
 }
 

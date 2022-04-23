@@ -1,0 +1,63 @@
+
+.friendsWrapper {
+
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 2px solid #000;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.friendsWrapper:hover {
+
+    background-color: rgba(0,0,0,.1);
+    transition: .2s;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+    background-size: auto;
+    object-fit: cover;
+}
+
+.information {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.name {
+
+    color: blue;
+    font-weight: middle;
+}
+
+.location {
+
+    color: darkblue;
+    font-weight: normal;
+}
+
+.status {
+
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    color:darkgreen;
+    font-weight: normal;
+}
+
+.followBtn {
+
+    display: flex;
+    justify-content: center;
+}
+

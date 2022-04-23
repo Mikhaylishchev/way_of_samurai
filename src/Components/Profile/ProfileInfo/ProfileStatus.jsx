@@ -49,7 +49,6 @@ class ProfileStatus extends React.Component {
 
             <div>
                 
-
                 editMode &&
 
                     <div>

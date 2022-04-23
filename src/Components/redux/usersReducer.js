@@ -74,49 +74,44 @@ export const toggleIsFollowingInProcess = (isFollowingInProcess, userId) => ({ty
 
 export const usersRequest = (page, pageSize) => {
     
-    return (dispatch) => {
+    return async (dispatch) => {
 
         dispatch(toggleIsFetching(true));
 
-        usersAPI.getUsers(page, pageSize)
+        let response = await usersAPI.getUsers(page, pageSize)
 
-            .then(response => {
-                dispatch(toggleIsFetching(false));
-                dispatch(setUsers(response.items));
-                dispatch(setUsersAmount(response.totalCount));
-                dispatch(setCurrentPage(page));
-            })
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(response.items));
+        dispatch(setUsersAmount(response.totalCount));
+        dispatch(setCurrentPage(page));
     };
+}
+
+const followUnfollowFlow = async(dispatch, user, apiMethod) => {
+
+    dispatch(toggleIsFollowingInProcess(true, user.id))
+
+    let response = await apiMethod(user)
+
+    if(response.data.resultCode === 0) {
+
+        dispatch(following(user.id))
+        dispatch(toggleIsFollowingInProcess(false, user.id))
+    }
 }
 
 export const follow = (user) => {
 
-    return(dispatch) => {
+    return async (dispatch) => {
 
-        dispatch(toggleIsFollowingInProcess(true, user.id))
-
-        usersAPI.following(user)
-
-            .then(response => {if(response.data.resultCode === 0) {
-
-                dispatch(following(user.id))
-                dispatch(toggleIsFollowingInProcess(false, user.id))
-            }})
+        followUnfollowFlow(dispatch, user, usersAPI.following);
     }
 }
 export const unfollow = (user) => {
 
-    return(dispatch) => {
+    return async (dispatch) => {
 
-        dispatch(toggleIsFollowingInProcess(true, user.id))
-
-        usersAPI.unfollowing(user)
-
-            .then(response => {if(response.data.resultCode === 0) {
-
-                dispatch(following(user.id))
-                dispatch(toggleIsFollowingInProcess(false, user.id))
-            }})
+        followUnfollowFlow(dispatch, user, usersAPI.unfollowing);
     }
 }
 

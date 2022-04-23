@@ -1,0 +1,35 @@
+
+
+.pageNum {
+    cursor: pointer;
+    margin: 4px 6px;
+    font-weight: bold;
+    color: blue;
+}
+
+.pageNum:hover {
+
+    text-decoration: underline;
+    color: orange;
+    transition: .3s;
+}
+
+.pagesNums {
+
+    display: flex;
+    padding: 2px;
+    align-items: center;
+    display: flex;
+    overflow-x: scroll;
+    width: 80%;  
+    margin: 0 auto;
+    
+}
+
+.selectedPageNum {
+
+    font-size: 25px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+}

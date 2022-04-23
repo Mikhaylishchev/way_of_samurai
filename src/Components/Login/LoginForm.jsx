@@ -3,14 +3,14 @@ import { requiredField } from '../../utils/validators/validators';
 import { Input } from '../common/FormControls/FormControls';
 import s from './LoginForm.module.css';
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
 
     return (
 
         <div className={s.auth}>
 
             <h1>Authorization</h1>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 
                 <div className={s.textareas}>
                     <Field component={Input} type="text" name="email" placeholder="Email" validate={[requiredField]}/>
@@ -24,7 +24,7 @@ const LoginForm = (props) => {
                         <label htmlFor="checkbox">Remember me</label>
                     </div>
 
-                    <div className={props.error ? s.formSummaryError : null}>{props.error}</div>
+                    <div className={error ? s.formSummaryError : null}>{error}</div>
                     <button>Login</button>
                 </div>
             </form>

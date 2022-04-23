@@ -4,16 +4,6 @@
     color: #000;
 }
 
-.friendsWrapper {
-
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    border: 2px solid #000;
-    margin: 10px;
-    border-radius: 20px;
-}
 
 .friendsWrapper div {
 
@@ -48,8 +38,7 @@
     text-decoration: underline;
 }
 
-.avatar {
-    /* qwe */
+/* .avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -57,7 +46,7 @@
     background-size: auto;
     object-fit: cover;
 }
-
+ */
 .friendsHeader {
 
     text-decoration: underline;
@@ -104,6 +93,12 @@
     border-radius: 50%;
 }
 
+.friendsWrapper:hover {
+
+    background-color: rgba(0,0,0,.1);
+    transition: .2s;
+}
+
 .subheader {
 
     font-size: 15px;
@@ -120,7 +115,7 @@
 .subheader a:hover {
     text-decoration: underline;
 }
-
+/* 
 .information {
     display: flex;
     justify-content: space-evenly;
@@ -128,32 +123,14 @@
     flex-direction: column;
 }
 
-.pagesNums {
+.name {
 
-    display: flex;
-    padding: 2px;
-    align-items: center;
-    display: flex;
-    overflow-x: scroll;    
-}
-
-.pageNum {
-    cursor: pointer;
-    margin: 4px 6px;
-    font-weight: bold;
     color: blue;
+    font-weight: middle;
 }
 
-.pageNum:hover {
+.location {
 
-    text-decoration: underline;
-    color: orange;
-    transition: .3s;
-}
-
-.selectedPageNum {
-
-    font-size: 25px;
-    font-weight: bold;
-    color: red;
-}
+    color: darkblue;
+    font-weight: normal;
+} */

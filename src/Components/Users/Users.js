@@ -1,8 +1,8 @@
 import React from "react";
-import s from './Users.module.css';
-import { NavLink } from 'react-router-dom';
+import Paginator from "../common/Paginator/Paginator";
+import { User } from "./User";
 
-let Users = (props) => {
+let Users = ({currentPage, changingPage, usersAmount, pageSize, ...props}) => {
 
     let pagesAmount = Math.ceil(props.usersAmount / props.pageSize);
 
@@ -17,57 +17,26 @@ let Users = (props) => {
 
     <div>
 
-        <div className={s.pagesNums}>
-
-            {pages.map((page, i) => {
-
-                return <span key={i} className={props.currentPage === page ? s.selectedPageNum : s.pageNum} onClick={(event) => {props.changingPage(page)}}>{page}</span>
-            })}
-
-        </div>
-
-        {
+        <Paginator currentPage={currentPage} changingPage={changingPage} usersAmount={usersAmount} pageSize={pageSize}/>
+        
+        <div>
             
-            props.users.map(user => <div key={`${user.id}`}>
+            {
+                
+                props.users.map(user => <User key={user.id}
+                                              user={user}
+                                              isAuth={props.isAuth}
+                                              isFollowingInProcess={props.isFollowingInProcess}
+                                              unfollow={props.unfollow}
+                                              follow={props.follow}/>
 
-                <div className={s.friendsWrapper}>
-                    <span>
-                        <div>
-
-                        <NavLink to={`/profile/${user.id}`}>
-                            <img className={s.avatar} src={user.photos.small || 'https://clck.ru/b2h9v'} alt='avatar'></img>
-                        </NavLink>
-
-                        </div>
-
-                        <div>
-                            {<button disabled={props.isAuth ? props.isFollowingInProcess.some(id => id === user.id) : true} onClick={() => {
-                                
-                                if (user.followed) {
-
-                                    props.unfollow(user);        //      unfollow-thunk
-                                    
-                                } else {
-
-                                    props.follow(user);        //      follow-thunk
-                                }
-
-                            }}>{user.followed ? 'Unfollow' : 'Follow'}</button>}
-                            
-                        </div>
-                    </span>
-
-                    <span className={s.information}>
-                        <div>{`${user.name}`}</div>
-                        <div>{'country'}, {'state'}, {user.id}, {'city'}</div>
-                        <div>{user.status}</div>
-                    </span>
-
-                </div>
-            </div>)
-        }
+                )
+            }
+        </div>
         
     </div>)
 }
 
 export default Users;
+
+
