@@ -2,7 +2,7 @@
   "name": "the_way_of_samurai",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mikhaylishchev.github.io/way_of_samurai/",
+  "homepage": "https://mikhaylishchev.github.io/way_of_samurai",
   "dependencies": {
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
