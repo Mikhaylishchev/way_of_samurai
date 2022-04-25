@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Menu.module.css';
 
-const Menu = () => {
+const Menu = (props) => {
 
     return (
 
@@ -10,7 +10,7 @@ const Menu = () => {
         <div className={s.menuWrapper}>
 
         <div className={`${s.item}`}>
-          <NavLink to='/profile' className = { item => item.isActive ? s.activeLink : s.item }>Profile</NavLink>
+          <NavLink to={'/profile/'} className = { item => item.isActive ? s.activeLink : s.item }>Profile</NavLink>
         </div>
         <div className={s.item}>
           <NavLink to='/messages' className = { item => item.isActive ? s.activeLink : s.item }>Messages</NavLink>
