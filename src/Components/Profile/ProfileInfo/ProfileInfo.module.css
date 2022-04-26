@@ -53,3 +53,20 @@ img {
 
     font-size: 0.9rem;
 }
+
+.avatar {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    flex-direction: column;
+}
+
+.changeAvatar {
+
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
