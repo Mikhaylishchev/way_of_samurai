@@ -4,9 +4,11 @@ import s from './ProfileInfo.module.css';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import Spinner from '../../common/Spinner/Spinner'
 
-const ProfileInfo = ({profile, status, updateStatus, login, isOwner, savePhoto}) => {
+const ProfileInfo = ({profile, status, updateStatus, login, isOwner, savePhoto, isAuth}) => {
 
   const mainPhotoSelect = (event) => {
+
+    // event.preventDefaul()
 
     if(event.target.files.length > 0) {
 
@@ -27,7 +29,7 @@ const ProfileInfo = ({profile, status, updateStatus, login, isOwner, savePhoto})
         {<div className={s.information}>
           <div className={s.avatar}>
             <img className={s.profileInfoAvatar} alt="avatar" src={profile.photos.large || "https://clck.ru/b2h9v"}></img>
-            {isOwner ? <input type="file" onChange={mainPhotoSelect}></input> : null}
+            {isOwner && isAuth ? <div className={s.avatarButtonWrapper}><input type="file" onChange={mainPhotoSelect}></input><img src="https://clck.ru/geBzq" alt="avatar"></img></div> : null}
           </div>
 
           <div className={s.about}>

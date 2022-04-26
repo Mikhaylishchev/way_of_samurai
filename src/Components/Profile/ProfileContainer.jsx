@@ -45,12 +45,14 @@ class ProfileContainer extends React.Component {
     }
   }
 
+
   render() {
 
     return <Profile {...this.props} status={this.props.status}
                                     updateStatus={this.props.updateStatus}
                                     isOwner={!this.props.params.userId}
                                     savePhoto={this.props.savePhoto}
+                                    isAuth={this.props.isAuth}
                                     />
   }
 }

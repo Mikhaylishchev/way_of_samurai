@@ -44,7 +44,7 @@ img {
     width: 48px;
 }
 
-.work div{
+.work div {
     color: #000;
     background-color: rgb(167, 152, 152);
 }
@@ -55,18 +55,58 @@ img {
 }
 
 .avatar {
+
     display: flex;
     flex-wrap: wrap;
     position: relative;
     flex-direction: column;
+    position: relative;
 }
 
-.changeAvatar {
-
-    width: 10%;
-    height: 10%;
+input[type='file'] {
+    color: transparent;
+    width: 100%;
+    background-image: url(https://cdn1.iconfinder.com/data/icons/social-media-outline-6/128/SocialMedia_Instagram-Outline-256.png);
     position: absolute;
+    top: 0;
     bottom: 0;
     right: 0;
+    /* margin: 0 20px 0 0; */
     cursor: pointer;
+    opacity: 0;
+    transition: .2s;
+    margin-left: -50px;
+    z-index: 1;
+    height: 100%;
+}
+
+input[type='file']:hover {
+
+    background-color: rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+.avatarButtonWrapper {
+
+    cursor: pointer;
+    transition: .2s;
+    width: calc(100% - 20px);
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 0;
+}
+
+.avatarButtonWrapper img {
+
+    width: 20px;
+    margin: 5%;
+    z-index: 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.avatarButtonWrapper:hover {
+
+    background-color: rgba(0,0,0,.2);
 }
