@@ -10,8 +10,10 @@ img {
 }
 
 .information {
+    padding: 20px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-start
 }
 
 .linksWrapper {
@@ -23,6 +25,11 @@ img {
 
     width: 200px;
     padding: 10px;
+}
+
+.about {
+
+    margin-left: 30px;
 }
 
 .name {
@@ -113,3 +120,22 @@ input[type='file']:hover {
 
     background-color: rgba(0,0,0,.2);
 }
+
+.contact {
+
+    margin: 0 10%;
+    display: flex;
+}
+
+.contactLink {
+
+    font-weight: normal;
+    color: blue;
+    margin-left: 10%;
+}
+
+.contactLink:hover {
+
+    text-decoration: underline;
+}
+

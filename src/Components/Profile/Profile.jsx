@@ -4,15 +4,13 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
 
-  console.log(props)
-
   return (
 
     <div>
 
-      <ProfileInfo {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus} savePhoto={props.savePhoto}/>
+      <ProfileInfo {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus} savePhoto={props.savePhoto} saveProfile={props.saveProfile}/>
 
-      {props.isAuth && props.isOwner ? <MyPostsContainer avatar={props.profile.photos.large}/> : null}      
+      {props.isAuth && props.isOwner ? <MyPostsContainer avatar={props.profile.photos.large}/> : null}     
     </div>
 
   )

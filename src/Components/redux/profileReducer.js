@@ -1,10 +1,12 @@
 import { profileAPI } from "../../api/api";
+import {stopSubmit} from 'redux-form';
 
 const ADD_POST = 'ADD-POST';
 const DELETE_POST = 'DELETE-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 const SAVE_PHOTO_SUCCESS = 'SAVE-PHOTO-SUCCESS';
+const SAVE_PROFILE = 'SAVE-PROFILE';
 
 let initialState = {
     
@@ -90,6 +92,8 @@ export const setStatus = (status) => ({type: SET_STATUS, status});
 
 export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos});
 
+export const saveProfileSuccess = (profile) => ({type: SAVE_PROFILE, profile});
+
 
 export const getUserProfile = (userId) => {
 
@@ -128,7 +132,31 @@ export const savePhoto = (file) => async (dispatch) => {
 
     let response = await profileAPI.savePhoto(file)
 
+    if(response.data.resultCode === 0)
+
     dispatch(savePhotoSuccess(response.data.data.photos));
 }
 
+export const updateProfile = (profile) => async (dispatch, getState) => {
+
+    const userId = getState().auth.id;
+    const response = await profileAPI.saveProfile(profile);
+
+        if(response.data.resultCode === 0){
+            
+            dispatch(saveProfileSuccess(response.data));
+            dispatch(getUserProfile(userId))
+        } else {
+
+            dispatch(stopSubmit('profileEdit', {_error: response.data.messages[0] || 'Something wrong.'}));
+
+            // dispatch(stopSubmit('profileEdit', {'contacts': {'facebook': response.data.messages[0]}}));
+            // dispatch(stopSubmit('profileEdit', {'aboutMe': response.data.messages[0]}));
+
+            return Promise.reject(response.data.messages[0]);
+        }
+}
+
 export default profileReducer;
+
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { getStatus, getUserProfile, savePhoto, updateStatus } from '../redux/profileReducer';
+import { getStatus, getUserProfile, savePhoto, updateProfile, updateStatus } from '../redux/profileReducer';
 import { useParams } from "react-router-dom";
 import { compose } from 'redux';
 
@@ -13,6 +13,7 @@ export const withRouter = WrappedComponent => props => {
     <WrappedComponent
       {...props}
       params={params}
+      
     />
   );
 };
@@ -68,7 +69,7 @@ let mapStateToProps = (state) => ({
 
 export default compose(
 
-  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }),
+  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, updateProfile }),
   withRouter,
   // withAuthRedirect
 )(ProfileContainer);
