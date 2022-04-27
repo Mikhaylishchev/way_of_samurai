@@ -31,7 +31,6 @@ const ProfileStatusWithHooks = (props) => {
         }
     }
 
-
     const statusChanging = (event) => {
 
         setStatus(event.currentTarget.value)

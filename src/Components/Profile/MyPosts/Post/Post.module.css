@@ -20,7 +20,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: center / cover url('https://clck.ru/bAjCX');
+    /* background: center / cover url('https://clck.ru/bAjCX'); */
 }
 
 .message {

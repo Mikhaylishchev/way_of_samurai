@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import s from './Post.module.css';
 
@@ -8,7 +6,7 @@ const Post = (props) => {
     return (
 
         <div className={s.item}>
-              <img className={s.avatar}></img>
+              <img src={props.avatar} className={s.avatar} alt="avatar"></img>
               
               <span className={s.message}>{props.message}</span>
 

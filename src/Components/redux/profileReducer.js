@@ -91,9 +91,6 @@ export const setStatus = (status) => ({type: SET_STATUS, status});
 export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos});
 
 
-
-
-
 export const getUserProfile = (userId) => {
 
     return async (dispatch) => {
