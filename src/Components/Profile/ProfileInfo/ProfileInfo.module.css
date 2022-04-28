@@ -28,8 +28,9 @@ img {
 }
 
 .about {
-
+    width: 50%;
     margin-left: 30px;
+    position: relative;
 }
 
 .name {
@@ -121,6 +122,12 @@ input[type='file']:hover {
     background-color: rgba(0,0,0,.2);
 }
 
+.avatarButtonWrapper:hover img {
+
+    margin-left: -15%;
+    transition: .2s
+}
+
 .contact {
 
     margin: 0 10%;
@@ -139,3 +146,17 @@ input[type='file']:hover {
     text-decoration: underline;
 }
 
+.editProfileIcon {
+
+    width: 20px;
+    cursor: pointer;
+    transition: .2s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.editProfileIcon:hover {
+
+    width: 30px;
+}

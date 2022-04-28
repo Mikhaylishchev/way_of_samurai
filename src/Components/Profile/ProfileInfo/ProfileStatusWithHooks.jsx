@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import s from './ProfileInfo.module.css';
 
 const ProfileStatusWithHooks = (props) => {
@@ -50,7 +51,7 @@ const ProfileStatusWithHooks = (props) => {
             { !editMode &&
 
                 <div className={s.status}>
-                    <span onClick={activateEditMode}>{props.status || '...'}</span>
+                    <span onClick={props.isAuth && props.isOwner ? activateEditMode : null}>{props.isAuth ? props.status || '...' :  props.status || <NavLink to="/login">You need to authorize.</NavLink>}</span>
                 </div>
             }
         </div >

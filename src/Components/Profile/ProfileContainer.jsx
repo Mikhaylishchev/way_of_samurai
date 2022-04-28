@@ -13,10 +13,10 @@ export const withRouter = WrappedComponent => props => {
     <WrappedComponent
       {...props}
       params={params}
-      
     />
   );
 };
+
 
 class ProfileContainer extends React.Component {
 
