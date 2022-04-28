@@ -5,7 +5,7 @@
     color: rgb(0, 0, 0);
     background-color: rgb(108, 139, 223);
     padding: 20px 10px;
-       
+    position: relative;
 }
 
 .item img {
@@ -13,13 +13,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 50px;
     /* background: center / cover url('https://clck.ru/bAjCX'); */
 }
 
@@ -46,3 +47,16 @@
     font-size: 20px;
     user-select: none;
 }
+
+.deletePostIcon {
+
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    cursor: pointer;
+    height: 30px;
+}
+
+/* <img src="https://clck.ru/gfVsD" alt="delete post" ></img> */

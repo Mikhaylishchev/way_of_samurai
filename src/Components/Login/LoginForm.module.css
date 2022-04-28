@@ -84,3 +84,30 @@ label {
     padding: 5px;
     text-align: center;
 }
+
+.editProfileFormWrapper form input{
+
+    width: 100%;
+    height: 20px;
+    margin: 5px;
+}
+
+.editProfileFormWrapper form textarea {
+
+    width: 100%;
+}
+
+.saveEditsIcon {
+
+    width: 20px;
+    opacity: 1;
+}
+
+.saveEditsBtn {
+
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    
+}

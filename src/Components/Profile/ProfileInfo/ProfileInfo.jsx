@@ -5,7 +5,7 @@ import Spinner from '../../common/Spinner/Spinner'
 import { NavLink } from 'react-router-dom';
 import ProfileDataForm from './ProfileDataForm';
 
-const ProfileInfo = ({ profile, status, updateStatus, login, isOwner, savePhoto, isAuth, updateProfile }) => {
+const ProfileInfo = ({ profile, status, updateStatus, login, isOwner, savePhoto, isAuth, updateProfile, params }) => {
 
   let [editMode, setEditMode] = useState(false);
 
@@ -21,12 +21,8 @@ const ProfileInfo = ({ profile, status, updateStatus, login, isOwner, savePhoto,
 
     updateProfile(formData)
 
-    .then(() => setEditMode(false))
-
-      
+    .then(() => setEditMode(false));
   }
-
-  console.log(profile)
 
   return (
 
@@ -40,20 +36,21 @@ const ProfileInfo = ({ profile, status, updateStatus, login, isOwner, savePhoto,
 
         {<div className={s.information}>
           <div className={s.avatar}>
-            <img className={s.profileInfoAvatar} alt="" src={profile.photos.large || "https://clck.ru/b2h9v"}></img>
+            <img className={s.profileInfoAvatar} alt="" src={profile.photos.large || "https://clck.ru/b2h9v"} onClick={() => console.log(123123)}></img>
             {isOwner && isAuth ? <div className={s.avatarButtonWrapper}>
-              <input type="file" onChange={mainPhotoSelect}></input>
+              <input title="Select new photo" type="file" onChange={mainPhotoSelect}></input>
               <img src="https://clck.ru/geZUF" alt="img"></img></div> : null}
           </div>
 
           <div className={s.about}>
 
-            <ProfileStatusWithHooks status={status || profile.status} updateStatus={updateStatus} />
+            <ProfileStatusWithHooks status={status || profile.status} updateStatus={updateStatus} isAuth={isAuth} isOwner={isOwner}/>
             <div className={s.name}>{profile.fullName || login}</div>
 
             {editMode
-              ? <ProfileDataForm initialValues={profile} isOwner={isOwner} onSubmit={onSubmit} profile={profile}/> // initialValues перезает значения  из profile в Field
-              : <ProfileData  goToEditMode={() => {setEditMode(true)}} profile={profile} isOwner={isOwner}/>
+              ? <ProfileDataForm initialValues={profile} isOwner={isOwner} onSubmit={onSubmit} profile={profile}/> // initialValues передает значения  из profile в Field
+              : isAuth || params.userId ? <ProfileData  goToEditMode={() => {setEditMode(true)}} profile={profile} isOwner={isOwner}/>
+              : null
             }
 
           </div>
@@ -69,7 +66,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
 
   return (
     <div>
-      {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+      {isOwner && <div><img src='https://clck.ru/geZUF' alt="Edit profile" className={s.editProfileIcon} title='Edit profile' onClick={goToEditMode}></img></div>}
 
       <div><b>About me: </b>{profile.aboutMe}</div>
 
@@ -79,8 +76,6 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
 
       <div><b>contacts:</b> {Object.keys(profile.contacts).map(key => {
 
-      
-
     return isOwner
         ? <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
         : profile.contacts[key] ? <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} /> : null
@@ -89,11 +84,11 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   )
 }
 
-
-
 export const Contact = ({ contactTitle, contactValue }) => {
 
   return contactValue ? <div className={s.contact}><b>{contactTitle}: </b> <NavLink className={s.contactLink} to={contactValue}>{contactValue}</NavLink></div> : <div className={s.contact}><b>{contactTitle}: </b> </div>
 }
+
+
 
 export default ProfileInfo;

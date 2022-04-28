@@ -4,6 +4,8 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
 
+  window.scrollTo(0, 0)
+
   return (
 
     <div>
@@ -12,7 +14,6 @@ const Profile = (props) => {
 
       {props.isAuth && props.isOwner ? <MyPostsContainer avatar={props.profile.photos.large}/> : null}     
     </div>
-
   )
 };
 

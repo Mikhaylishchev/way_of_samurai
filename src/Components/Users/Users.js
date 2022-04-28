@@ -20,7 +20,7 @@ let Users = ({currentPage, changingPage, usersAmount, pageSize, ...props}) => {
         <Paginator currentPage={currentPage} changingPage={changingPage} usersAmount={usersAmount} pageSize={pageSize}/>
         
         <div>
-            
+
             {
                 
                 props.users.map(user => <User key={user.id}

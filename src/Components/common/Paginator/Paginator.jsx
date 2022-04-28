@@ -15,14 +15,14 @@ let Paginator = (props) => {
     return (
 
         <div className={s.pagesNums}>
-                {pages.map((page, i) => {
-    
-                    return <span key={i} className={props.currentPage === page ? s.selectedPageNum : s.pageNum} onClick={(event) => { 
-                        event.preventDefault();
-                        props.changingPage(page)}}>{page}</span>
-                })}
-        </div>
+            
+            {pages.map((page, i) => {
 
+                return <span key={i} className={props.currentPage === page ? s.selectedPageNum : s.pageNum} onClick={(event) => { 
+                    event.preventDefault();
+                    props.changingPage(page)}}>{page}</span>
+            })}
+        </div>
     )
 }
 
