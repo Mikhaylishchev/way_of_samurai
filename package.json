@@ -2,7 +2,7 @@
   "name": "the_way_of_samurai",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mikhaylishchev.github.io/way_of_samurai",
+  "homepage": "https://mikhaylishchev.github.io/way_of_samurai/",
   "dependencies": {
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -16,6 +16,7 @@
     "redux-form": "^8.3.8",
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.5",
+    "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
