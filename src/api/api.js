@@ -45,15 +45,15 @@ export const authAPI = {
             .then(response => response.data);
     },
 
-    login(email, password, rememberMe = false) {
+    login(email, password, rememberMe = false, captcha) {
 
-        return instance.post('auth/login', {email, password, rememberMe});
+        return instance.post('auth/login', {email, password, rememberMe, captcha});
     },
 
     logout() {
 
         return instance.delete('auth/login');
-    }
+    },
 }
 
 export const profileAPI = {
@@ -93,5 +93,13 @@ export const profileAPI = {
 
         
         return instance.put(`profile/`, profile)
+    }
+}
+
+export const securityAPI = {
+
+    getCapcthaUrl() {
+
+        return instance.get('security/get-captcha-url')
     }
 }

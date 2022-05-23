@@ -7,9 +7,11 @@ import { Navigate } from "react-router-dom";
 
 const Login = (props) => {
 
+    console.log(props)
+
     const onSubmit = (formData) => {
 
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
 
     if(props.isAuth) {
@@ -21,14 +23,17 @@ const Login = (props) => {
 
         <div className={s.auth}>
 
-            <ReduxLoginForm onSubmit={onSubmit}/>
+            <ReduxLoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>        
     )
 }
 
 const mapStateToProps = (state) => {
 
-    return {isAuth: state.auth.isAuth}
+    return {
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl
+    }
 }
 
 export default connect (mapStateToProps, {login})(Login);

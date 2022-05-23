@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import Spinner from '../../common/Spinner/Spinner'
-import { NavLink } from 'react-router-dom';
 import ProfileDataForm from './ProfileDataForm';
 
 const ProfileInfo = ({ profile, status, updateStatus, login, isOwner, savePhoto, isAuth, updateProfile, params }) => {
@@ -86,7 +85,10 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
 
 export const Contact = ({ contactTitle, contactValue }) => {
 
-  return contactValue ? <div className={s.contact}><b>{contactTitle}: </b> <NavLink className={s.contactLink} to={contactValue}>{contactValue}</NavLink></div> : <div className={s.contact}><b>{contactTitle}: </b> </div>
+  return contactValue
+  
+  ? <div className={s.contact}><b>{contactTitle}: </b> <a target='blank' className={s.contactLink} href={contactValue}>{contactValue}</a></div>
+  : <div className={s.contact}><b>{contactTitle}: </b> </div>
 }
 
 

@@ -3,7 +3,9 @@ import { requiredField } from '../../utils/validators/validators';
 import { Input } from '../common/FormControls/FormControls';
 import s from './LoginForm.module.css';
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
+
+    console.log(captchaUrl)
 
     return (
 
@@ -14,7 +16,7 @@ const LoginForm = ({handleSubmit, error}) => {
                 
                 <div className={s.textareas}>
                     <Field component={Input} type="text" name="email" placeholder="Email" validate={[requiredField]}/>
-                    <Field component={Input} type="password" name="password" placeholder="Password"  validate={[requiredField]}/>
+                    <Field component={Input} type="password" name="password" placeholder="Password" validate={[requiredField]}/>
                 </div>
                 
                 <div className={s.button}>
@@ -25,6 +27,11 @@ const LoginForm = ({handleSubmit, error}) => {
                     </div>
 
                     <div className={error ? s.formSummaryError : null}>{error}</div>
+
+                    {captchaUrl && <div className={s.captchaBlock}>
+                        <img src={captchaUrl} alt="captcha"/>
+                        <Field component={Input} type="text" name="captcha" placeholder="Enter symbols from image" validate={[requiredField]} />
+                    </div>}
                     <button>Login</button>
                 </div>
             </form>

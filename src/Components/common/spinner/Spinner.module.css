@@ -1,13 +1,15 @@
 
-
 .spinner {
 
     display: block;
     height: 150px;
     width: 150px;
     background-repeat: no-repeat;
-    margin: 30% auto;
+    margin: 0 auto;
     object-fit: cover;
+    position: absolute;
+    left:40%;
+    top: 40%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

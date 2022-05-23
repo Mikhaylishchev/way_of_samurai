@@ -127,7 +127,7 @@ input[type='file']:hover {
 .avatarButtonWrapper:hover img {
 
     margin-left: -15%;
-    transition: .2s
+    transition: .2s;
 }
 
 .contact {

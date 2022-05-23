@@ -111,3 +111,9 @@ label {
     margin: 20px;
     
 }
+
+.captchaBlock {
+
+    border: 2px solid black;
+    padding: 20px;
+}

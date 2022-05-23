@@ -5,11 +5,8 @@ import News from './Components/News/News';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
 import { Routes, Route } from "react-router-dom";
-// import DialogsContainer from './Components/Dialogs/DialogsContainer';
-// import UsersContainer from './Components/Users/UsersContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
-// import LoginPage from './Components/Login/Login';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './Components/redux/appReducer';
@@ -42,7 +39,9 @@ class App extends React.Component {
           <Routes>
             
             
-              <Route path="/" element={<ProfileContainer />} />
+              <Route path="/" element={<ProfileContainer />}>
+                <Route path=":userId" element={<ProfileContainer />} />
+              </Route>
               <Route path="/profile" element={<ProfileContainer />}>
                 <Route path=":userId" element={<ProfileContainer />} />
               </Route>
